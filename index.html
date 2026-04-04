@@ -6,143 +6,633 @@
 <title>Markquel Taylor — Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white:   #ffffff;
+    --cream:   #f8f6f3;
+    --ink:     #141414;
+    --gray:    #8a8a8a;
+    --line:    #e8e5e1;
+    --red:     #c1281b;
+    --red-deep:#a82217;
+    --red-dim: #faf0ef;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── FLOATING RESUME BUTTON ── */
+  .resume-fab {
+    position: fixed;
+    bottom: 36px; right: 36px;
+    z-index: 200;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(20,20,20,0.18);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    opacity: 0; animation: fabIn 0.6s 1.4s forwards;
+  }
+  .resume-fab:hover {
+    background: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(193,40,27,0.25);
+  }
+  .resume-fab svg { flex-shrink: 0; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 64px;
+    transition: background 0.4s, box-shadow 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--line);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 18px;
+    color: var(--ink); text-decoration: none; letter-spacing: 0.3px;
+  }
+  .nav-logo em { color: var(--red); font-style: normal; }
+  .nav-links { display: flex; gap: 44px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 11px; font-weight: 400; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gray); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-pill {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    padding: 10px 24px !important;
+    border-radius: 100px;
+    letter-spacing: 2px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-pill:hover { background: var(--red-deep) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--red);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 140px 64px 120px;
+    position: relative; overflow: hidden;
+  }
+
+  /* Concentric rings */
+  .hero-ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 700; color: rgba(255,255,255,0.9);
+    margin-bottom: 40px; position: relative; z-index: 1;
+    opacity: 0; animation: rise 0.8s 0.2s forwards;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+    padding: 8px 20px; border-radius: 100px;
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 36px; position: relative; z-index: 1;
+    opacity: 0; animation: rise 0.8s 0.35s forwards;
+  }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #5dde8a; animation: pulse 2s infinite; }
+
+  /* Typewriter headline */
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 66px);
+    font-weight: 700; line-height: 1.15; color: var(--white);
+    max-width: 840px; margin-bottom: 10px;
+    position: relative; z-index: 1;
+    opacity: 0; animation: rise 0.8s 0.5s forwards;
+    min-height: 2.4em;
+  }
+  .hero-headline .typed-text { color: rgba(255,255,255,0.88); }
+  .hero-headline .typed-cursor {
+    display: inline-block; width: 3px; height: 0.9em;
+    background: rgba(255,255,255,0.7); margin-left: 3px;
+    vertical-align: middle; animation: blink 0.75s infinite;
+  }
+  .hero-static {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2.5vw, 30px);
+    color: rgba(255,255,255,0.55); margin-bottom: 48px;
+    position: relative; z-index: 1;
+    opacity: 0; animation: rise 0.8s 0.65s forwards;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px;
+    position: relative; z-index: 1;
+    opacity: 0; animation: rise 0.8s 0.8s forwards;
+    margin-bottom: 80px;
+  }
+  .btn-solid {
+    background: var(--white); color: var(--red);
+    padding: 16px 40px; font-size: 11px; font-weight: 500;
+    letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none;
+    border-radius: 2px; transition: background 0.2s, color 0.2s;
+  }
+  .btn-solid:hover { background: var(--ink); color: var(--white); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+    padding: 16px 36px; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 2px; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+
+  /* Scrolling cert ticker in hero bottom */
+  .hero-ticker-wrap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.18);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden; padding: 0;
+    opacity: 0; animation: fadeIn 1s 1.1s forwards;
+  }
+  .ticker-track {
+    display: flex; gap: 0;
+    animation: tickerScroll 28s linear infinite;
+    width: max-content;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  .ticker-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 48px;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .ticker-item span { color: rgba(255,255,255,0.7); }
+  .ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); opacity: 0.6; flex-shrink: 0; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--ink);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid #222;
+  }
+  .stat-cell {
+    padding: 52px 48px;
+    border-right: 1px solid #222;
+    text-align: center;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 700; line-height: 1;
+    color: var(--white); margin-bottom: 10px;
+    display: flex; align-items: flex-start; justify-content: center; gap: 2px;
+  }
+  .stat-number .suffix { font-size: 0.45em; margin-top: 10px; color: var(--red); }
+  .stat-label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #555;
+  }
+
+  /* ── SECTION BASE ── */
+  .section { padding: 120px 64px; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 52px;
+  }
+  .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--red); display: block; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); border-top: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+
+  .about-photo {
+    position: relative;
+  }
+  .about-photo-inner {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  /* Geometric avatar illustration */
+  .about-photo-inner::before {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 62%; height: 72%;
+    background: #c8c0b6; border-radius: 180px 180px 0 0;
+  }
+  .about-photo-inner::after {
+    content: '';
+    position: absolute; bottom: 34%; left: 50%; transform: translateX(-50%);
+    width: 38%; height: 38%;
+    background: #b4aba0; border-radius: 50%;
+  }
+  .about-photo-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: var(--red); padding: 14px 20px;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .about-photo-frame {
+    position: absolute; top: 16px; left: 16px; right: -16px; bottom: -16px;
+    border: 1px solid var(--line); z-index: -1;
+  }
+
+  .about-h {
+    font-family: 'Playfair Display', serif; font-weight: 400;
+    font-size: clamp(36px, 4vw, 58px);
+    line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 32px;
+  }
+  .about-h em { font-style: italic; color: var(--red); }
+  .about-p {
+    font-size: 15px; line-height: 1.95; color: var(--gray); margin-bottom: 22px;
+  }
+  .about-p strong { color: var(--ink); font-weight: 500; }
+  .about-divider { width: 36px; height: 1px; background: var(--red); margin: 36px 0; }
+  .about-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    background: var(--cream); border: 1px solid var(--line);
+    padding: 7px 16px; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--ink);
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .pill:hover { border-color: var(--red); background: var(--red-dim); }
+
+  /* ── EXPERTISE ── */
+  .expertise { background: var(--cream); border-top: 1px solid var(--line); }
+  .expertise-h {
+    font-family: 'Playfair Display', serif; font-weight: 400;
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 72px;
+  }
+  .expertise-h em { font-style: italic; color: var(--red); }
+  .exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--line); }
+  .exp-card {
+    background: var(--cream); padding: 52px 44px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .exp-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--red);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .exp-card:hover { background: var(--white); }
+  .exp-card:hover::after { transform: scaleX(1); }
+  .exp-icon { font-size: 26px; margin-bottom: 28px; display: block; }
+  .exp-title {
+    font-family: 'Playfair Display', serif; font-size: 22px;
+    font-weight: 400; margin-bottom: 16px;
+  }
+  .exp-desc { font-size: 14px; line-height: 1.85; color: var(--gray); margin-bottom: 28px; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .exp-tag {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--red); background: var(--red-dim); padding: 5px 12px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--white); border-top: 1px solid var(--line); }
+  .projects-h {
+    font-family: 'Playfair Display', serif; font-weight: 400;
+    font-size: clamp(38px, 5vw, 72px);
+    line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 72px;
+  }
+  .projects-h em { font-style: italic; color: var(--red); }
+  .proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--line); }
+
+  .proj-card { background: var(--white); display: flex; flex-direction: column; transition: background 0.3s; }
+  .proj-card:hover { background: var(--red-dim); }
+  .proj-img { aspect-ratio: 16/10; position: relative; overflow: hidden; }
+  .proj-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: transform 0.4s, filter 0.4s; }
+  .proj-card:hover .proj-img img { transform: scale(1.04); filter: grayscale(0%); }
+
+  /* illustrated placeholders */
+  .proj-finny { background: linear-gradient(135deg,#0d3d4a,#0a6b6e); display:flex;align-items:center;justify-content:center;font-size:64px; }
+  .proj-trading {
+    background: #0b0e14;
+    display: flex; align-items: flex-end; padding: 20px 16px; gap: 5px;
+  }
+  .proj-bar { flex: 1; background: var(--red); border-radius: 2px 2px 0 0; opacity: 0.7; transition: opacity 0.3s; }
+  .proj-card:hover .proj-bar { opacity: 1; }
+  .proj-mac { background: linear-gradient(135deg,#f0ebe3,#ddd5c8); display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;font-size:52px; }
+  .proj-mac-lines { display:flex;flex-direction:column;gap:6px;width:60%; }
+  .proj-mac-line { height:3px; background:#c0b8a8; border-radius:2px; }
+
+  .proj-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--red); padding: 5px 12px;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+  }
+  .proj-body { padding: 36px 36px 44px; flex: 1; display: flex; flex-direction: column; }
+  .proj-sub { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+  .proj-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; margin-bottom: 14px; }
+  .proj-desc { font-size: 14px; line-height: 1.85; color: var(--gray); flex: 1; margin-bottom: 28px; }
+  .proj-desc strong { color: var(--ink); font-weight: 500; }
+  .proj-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; font-weight: 500;
+    padding-bottom: 4px; border-bottom: 1px solid var(--line);
+    width: fit-content; transition: color 0.2s, border-color 0.2s;
+  }
+  .proj-link:hover { color: var(--red); border-color: var(--red); }
+  .proj-link svg { transition: transform 0.2s; }
+  .proj-link:hover svg { transform: translateX(4px); }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--cream); border-top: 1px solid var(--line); }
+  .exp-roles { display: flex; flex-direction: column; gap: 2px; background: var(--line); }
+  .role-card {
+    background: var(--cream); padding: 56px 56px;
+    transition: background 0.3s;
+  }
+  .role-card:hover { background: var(--white); }
+  .role-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 32px; flex-wrap: wrap; gap: 12px;
+  }
+  .role-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 400; margin-bottom: 6px; }
+  .role-company { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); }
+  .role-date { font-size: 11px; letter-spacing: 1.5px; color: var(--gray); padding-top: 4px; }
+  .role-bullets { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .role-bullets li {
+    font-size: 14px; line-height: 1.85; color: var(--gray);
+    padding-left: 22px; position: relative;
+  }
+  .role-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--red); }
+  .role-bullets strong { color: var(--ink); font-weight: 500; }
+
+  /* ── CERTIFICATIONS TICKER ── */
+  .cert-section {
+    background: var(--ink);
+    padding: 64px 0;
+    border-top: 1px solid #1e1e1e;
+    overflow: hidden;
+  }
+  .cert-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: #444; margin-bottom: 36px; padding: 0 64px;
+  }
+  .cert-ticker-wrap { overflow: hidden; }
+  .cert-ticker {
+    display: flex; gap: 0; width: max-content;
+    animation: tickerScroll 32s linear infinite;
+  }
+  .cert-ticker:hover { animation-play-state: paused; }
+  .cert-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 48px;
+    border-right: 1px solid #1e1e1e;
+    white-space: nowrap;
+  }
+  .cert-item-year {
+    font-size: 10px; letter-spacing: 2px; color: var(--red);
+  }
+  .cert-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.65);
+  }
+  .cert-item-org {
+    font-size: 10px; letter-spacing: 2px; color: #444; text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  .contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+  .contact-left {
+    padding: 120px 64px; background: var(--white);
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .contact-h {
+    font-family: 'Playfair Display', serif; font-weight: 400;
+    font-size: clamp(38px, 4.5vw, 64px);
+    line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 56px;
+  }
+  .contact-h em { font-style: italic; color: var(--red); }
+  .contact-rows { display: flex; flex-direction: column; }
+  .contact-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0; border-bottom: 1px solid var(--line);
+  }
+  .cr-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); }
+  .cr-val { font-size: 14px; color: var(--ink); text-decoration: none; transition: color 0.2s; }
+  .cr-val:hover { color: var(--red); }
+  .status-row { display: flex; align-items: center; gap: 8px; }
+  .s-dot { width: 7px; height: 7px; border-radius: 50%; background: #2ecc71; animation: pulse 2.5s infinite; }
+
+  .contact-right {
+    background: var(--red); padding: 120px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .cr-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+  .cr-headline {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: clamp(26px, 3vw, 42px); font-weight: 400; line-height: 1.35;
+    color: var(--white); margin-bottom: 36px;
+  }
+  .cr-note { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.55); margin-bottom: 48px; max-width: 340px; }
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: var(--white); color: var(--red);
+    padding: 16px 36px; font-size: 11px; font-weight: 500;
+    letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none;
+    width: fit-content; transition: background 0.2s, color 0.2s; border-radius: 2px;
+  }
+  .btn-white:hover { background: var(--ink); color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); padding: 28px 64px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot-logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); }
+  .foot-logo em { color: var(--red); font-style: normal; }
+  .foot-links { display: flex; gap: 32px; }
+  .foot-links a { font-size: 11px; letter-spacing: 1.5px; color: #444; text-decoration: none; transition: color 0.2s; }
+  .foot-links a:hover { color: var(--white); }
+  footer p { font-size: 11px; letter-spacing: 1.5px; color: #333; }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.45s}
+
+  /* ── KEYFRAMES ── */
+  @keyframes rise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes fabIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+  @keyframes tickerScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+</style>
 </head>
 <body>
 
+<!-- FLOATING RESUME BUTTON -->
+<a href="#" class="resume-fab" title="Download Resume" onclick="alert('Attach your resume PDF link here!')">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Resume
+</a>
+
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="logo">Markquel <em>Taylor</em></a>
+  <a href="#" class="nav-logo">Markquel <em>Taylor</em></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-    <li><a href="#contact" class="nav-cta">Open to Work</a></li>
+    <li><a href="#contact" class="nav-pill">Open to Work</a></li>
   </ul>
 </nav>
 
 <!-- ① HERO -->
 <section class="hero">
+  <!-- Rings -->
+  <div class="hero-ring" style="width:600px;height:600px;"></div>
+  <div class="hero-ring" style="width:920px;height:920px;opacity:.04;"></div>
+  <div class="hero-ring" style="width:1240px;height:1240px;opacity:.025;"></div>
+
   <div class="hero-avatar">MT</div>
+
   <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    Open to APM & Product Analyst Roles
+    <span class="live-dot"></span>
+    Open to APM &amp; Product Analyst Roles
   </div>
+
   <h1 class="hero-headline">
-    I don't guess what users want.<br>
-    <em>I've spent 10 years listening to them.</em>
+    <span class="typed-text"></span><span class="typed-cursor"></span>
   </h1>
-  <p class="hero-sub">
-    Product-minded builder with a decade in FinTech. Passionate about AI-driven workflows,
-    thoughtful digital experiences, and tools that make complex things simpler.
-  </p>
+  <p class="hero-static">Product Manager · FinTech · AI Builder</p>
+
   <div class="hero-actions">
-    <a href="#projects" class="btn-hero">View My Work</a>
-    <a href="#contact" class="btn-hero-ghost">Let's Connect</a>
+    <a href="#projects" class="btn-solid">View My Work</a>
+    <a href="#contact" class="btn-outline">Let's Connect</a>
   </div>
-  <div class="hero-ticker">
-    <div class="ticker-item"><strong>Fidelity Investments</strong> — FinTech Support & Innovation</div>
-    <span class="ticker-sep">·</span>
-    <div class="ticker-item"><strong>Global Payments</strong> — Customer-Facing Problem Solving</div>
-    <span class="ticker-sep">·</span>
-    <div class="ticker-item"><strong>Frog Tank Winner</strong> — Finny & Flo, 1st Place</div>
-    <span class="ticker-sep">·</span>
-    <div class="ticker-item"><strong>Builder</strong> — Trading Alpha, AI-Native Trading Journal</div>
+
+  <!-- Scrolling cert ticker -->
+  <div class="hero-ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google BI Specialization</span> · Mar 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google AI Professional</span> · Mar 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>IBM Product Management</span> · Dec 2025</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Series 7 · Series 63 · SIE</span> · FINRA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google Prompting Essentials</span> · Feb 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>AI for Work &amp; Life</span> · UNF</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Android Nanodegree</span> · Udacity</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google BI Specialization</span> · Mar 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google AI Professional</span> · Mar 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>IBM Product Management</span> · Dec 2025</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Series 7 · Series 63 · SIE</span> · FINRA</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Google Prompting Essentials</span> · Feb 2026</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>AI for Work &amp; Life</span> · UNF</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Android Nanodegree</span> · Udacity</div>
+    </div>
   </div>
 </section>
 
-<!-- CAREER TIMELINE -->
-<div class="timeline">
-  <div class="timeline-label reveal">Career Journey</div>
-  <div class="timeline-track">
-    <div class="tl-item reveal">
-      <div class="tl-dot"></div>
-      <div class="tl-year">Jun 2018 – May 2022</div>
-      <div class="tl-role">Sr. Technical Support Specialist</div>
-      <div class="tl-company">Global Payments</div>
-    </div>
-    <div class="tl-item reveal d1">
-      <div class="tl-dot"></div>
-      <div class="tl-year">May 2022 – Present</div>
-      <div class="tl-role">Trade Specialist</div>
-      <div class="tl-company">Fidelity Investments</div>
-    </div>
-    <div class="tl-item reveal d2">
-      <div class="tl-dot"></div>
-      <div class="tl-year">Dec 2024</div>
-      <div class="tl-role">🏆 Frog Tank — 1st Place</div>
-      <div class="tl-company">Finny & Flo · Fidelity</div>
-    </div>
-    <div class="tl-item reveal d3">
-      <div class="tl-dot"></div>
-      <div class="tl-year">Now</div>
-      <div class="tl-role">Seeking APM / Product Analyst</div>
-      <div class="tl-company">FinTech · EdTech · AI Apps</div>
-    </div>
+<!-- ② ANIMATED STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-cell">
+    <div class="stat-number"><span class="counter" data-target="25000" data-suffix="K+">0</span></div>
+    <div class="stat-label">Merchants Onboarded</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number"><span class="counter" data-target="9700" data-suffix="+">0</span></div>
+    <div class="stat-label">Technical Cases Analyzed</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+    <div class="stat-label">Trade Execution Accuracy</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-number"><span class="counter" data-target="10" data-suffix="yrs">0</span></div>
+    <div class="stat-label">FinTech Experience</div>
   </div>
 </div>
 
-<!-- ② ABOUT -->
+<!-- ③ ABOUT -->
 <section class="section about" id="about">
-  <div class="photo-offset reveal">
-    <div class="photo-placeholder">
-      <div class="pp-bg"></div>
-      <div class="pp-shape1"></div>
-      <div class="pp-shape2"></div>
-      <div class="pp-label">Product Manager · Builder · FinTech</div>
+  <div class="about-grid">
+    <div class="about-photo reveal">
+      <div class="about-photo-inner">
+        <div class="about-photo-label">Product Manager · FinTech · Builder</div>
+      </div>
+      <div class="about-photo-frame"></div>
     </div>
-  </div>
-  <div>
-    <div class="eyebrow reveal">About Me</div>
-    <h2 class="about-heading reveal d1">
-      Where user empathy<br>meets <em>product craft.</em>
-    </h2>
-    <p class="about-body reveal d2">
-      I'm a <strong>product-minded builder</strong> with a background in finance, technology, and
-      customer-facing problem solving. After a decade on the front lines of FinTech support
-      at <strong>Fidelity Investments</strong> and <strong>Global Payments</strong>, I mastered
-      the art of Voice of the Customer.
-    </p>
-    <p class="about-body reveal d2">
-      I know exactly where users get stuck, why they churn, and how a single UI friction
-      point can cost a firm millions in trade volume. Now I use that deep domain expertise
-      to build products that <strong>solve those problems before they happen.</strong>
-    </p>
-    <p class="about-body reveal d2">
-      I'm passionate about creating thoughtful digital experiences, exploring AI-driven
-      workflows, and building tools that make complex things simpler, more useful, and more human.
-    </p>
-    <div class="about-pills reveal d3">
-      <span class="pill">Series 7</span>
-      <span class="pill">Options</span>
-      <span class="pill">SQL</span>
-      <span class="pill">Figma</span>
-      <span class="pill">Jira</span>
-      <span class="pill">Salesforce</span>
-      <span class="pill">Google AI Studio</span>
-      <span class="pill">LLM / AI</span>
-      <span class="pill">Android Dev</span>
+    <div>
+      <div class="eyebrow reveal">About Me</div>
+      <h2 class="about-h reveal d1">
+        Where user empathy<br>meets <em>product craft.</em>
+      </h2>
+      <p class="about-p reveal d2">
+        I'm a <strong>product-minded builder</strong> with a background in finance, technology, and customer-facing problem solving. After a decade on the front lines of FinTech support at <strong>Fidelity Investments</strong> and <strong>Global Payments</strong>, I mastered the art of Voice of the Customer.
+      </p>
+      <p class="about-p reveal d2">
+        I know exactly where users get stuck, why they churn, and how a single UI friction point can cost a firm millions in trade volume. Now I use that expertise to <strong>build products that solve those problems before they happen.</strong>
+      </p>
+      <div class="about-divider reveal d3"></div>
+      <div class="about-pills reveal d3">
+        <span class="pill">Series 7 &amp; 63</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Figma</span>
+        <span class="pill">Jira</span>
+        <span class="pill">Salesforce</span>
+        <span class="pill">Google AI Studio</span>
+        <span class="pill">LLM / AI</span>
+        <span class="pill">Android Dev</span>
+        <span class="pill">Voice of Customer</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ③ EXPERTISE -->
+<!-- ④ EXPERTISE -->
 <section class="section expertise" id="expertise">
   <div class="eyebrow reveal">What I Bring</div>
-  <h2 class="expertise-heading reveal d1">
+  <h2 class="expertise-h reveal d1">
     Strategy, fluency,<br><em>and execution.</em>
   </h2>
-  <div class="expertise-grid">
+  <div class="exp-grid">
     <div class="exp-card reveal">
       <span class="exp-icon">◎</span>
       <div class="exp-title">Product Strategy</div>
-      <p class="exp-desc">
-        Translating complex user needs into actionable roadmaps using frameworks like
-        Kotler's Product Levels. I turn Voice of the Customer data into features that
-        actually move the needle.
-      </p>
+      <p class="exp-desc">Translating complex user needs into actionable roadmaps using Kotler's Product Levels. I turn Voice of Customer data into features that move the needle — not just the backlog.</p>
       <div class="exp-tags">
         <span class="exp-tag">Roadmapping</span>
         <span class="exp-tag">User Research</span>
@@ -152,11 +642,7 @@
     <div class="exp-card reveal d1">
       <span class="exp-icon">⬡</span>
       <div class="exp-title">Technical Fluency</div>
-      <p class="exp-desc">
-        I speak the language of engineering — SQL, Android Dev, AI/LLM integration — and
-        the language of finance — Series 7, Options, Margin. I bridge both worlds without
-        a translator.
-      </p>
+      <p class="exp-desc">I speak engineering — SQL, Android Dev, AI/LLM integration — and finance — Series 7, Options, Margin. I bridge both worlds fluently, without a translator in the room.</p>
       <div class="exp-tags">
         <span class="exp-tag">SQL</span>
         <span class="exp-tag">AI / LLM</span>
@@ -167,10 +653,7 @@
     <div class="exp-card reveal d2">
       <span class="exp-icon">◈</span>
       <div class="exp-title">Execution</div>
-      <p class="exp-desc">
-        From 100% trade accuracy in high-stakes environments to reducing support ticket
-        volume through better documentation. I ship, iterate, and measure — not just plan.
-      </p>
+      <p class="exp-desc">From 100% trade accuracy in high-stakes environments to reducing ticket volume through better docs. I ship, measure, and iterate — not just plan and present.</p>
       <div class="exp-tags">
         <span class="exp-tag">Jira</span>
         <span class="exp-tag">Figma</span>
@@ -181,221 +664,136 @@
   </div>
 </section>
 
-<!-- ④ PROJECTS -->
+<!-- ⑤ PROJECTS -->
 <section class="section projects" id="projects">
   <div class="eyebrow reveal">Selected Work</div>
-  <h2 class="projects-heading reveal d1">
-    Built, pitched,<br><em>and shipped.</em>
-  </h2>
-  <div class="projects-grid">
+  <h2 class="projects-h reveal d1">Built, pitched,<br><em>and shipped.</em></h2>
+  <div class="proj-grid">
 
-    <!-- Finny & Flo -->
     <div class="proj-card reveal">
-      <div class="proj-img proj-img-finny">
-        <div class="proj-img-inner">
-          <span class="proj-icon">🐸</span>
-        </div>
+      <div class="proj-img proj-finny">🐸
         <div class="proj-badge">🏆 1st Place — Frog Tank</div>
       </div>
       <div class="proj-body">
-        <div class="proj-subtitle">Innovation Challenge · Fidelity Investments</div>
-        <div class="proj-title">Finny & Flo</div>
-        <p class="proj-desc">
-          Led a cross-functional team to design, prototype, and pitch a gamified financial
-          literacy concept to Fidelity senior leadership. Won 1st Place in the company-wide
-          Frog Tank Innovation Challenge — validating the transition to Product Management.
-        </p>
-        <a href="#contact" class="proj-link">
-          Learn more
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </a>
+        <div class="proj-sub">Innovation Challenge · Fidelity Investments · Dec 2024</div>
+        <div class="proj-title">Finny &amp; Flo</div>
+        <p class="proj-desc">Led a cross-functional team to design, prototype, and pitch a <strong>gamified financial literacy board game</strong> for Gen Z investors. Managed the full product lifecycle — discovery, market research, user testing, MVP definition, and a high-stakes pitch to senior executive leadership.</p>
+        <a href="#contact" class="proj-link">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
       </div>
     </div>
 
-    <!-- Trading Alpha -->
     <div class="proj-card reveal d1">
-      <div class="proj-img proj-img-trading">
-        <div class="chart-lines">
-          <div class="chart-bar" style="height:40%"></div>
-          <div class="chart-bar" style="height:65%"></div>
-          <div class="chart-bar" style="height:50%"></div>
-          <div class="chart-bar" style="height:80%"></div>
-          <div class="chart-bar" style="height:55%"></div>
-          <div class="chart-bar" style="height:90%"></div>
-          <div class="chart-bar" style="height:70%"></div>
-          <div class="chart-bar" style="height:85%"></div>
-          <div class="chart-bar" style="height:60%"></div>
-          <div class="chart-bar" style="height:75%"></div>
-        </div>
-        <div class="proj-img-inner">
-          <span class="proj-icon" style="color:rgba(255,255,255,0.6)">📊</span>
-        </div>
-        <div class="proj-badge">AI-Native · Built & Launched</div>
+      <div class="proj-img proj-trading">
+        <div class="proj-bar" style="height:42%"></div>
+        <div class="proj-bar" style="height:68%"></div>
+        <div class="proj-bar" style="height:52%"></div>
+        <div class="proj-bar" style="height:84%"></div>
+        <div class="proj-bar" style="height:56%"></div>
+        <div class="proj-bar" style="height:93%"></div>
+        <div class="proj-bar" style="height:71%"></div>
+        <div class="proj-bar" style="height:88%"></div>
+        <div class="proj-bar" style="height:62%"></div>
+        <div class="proj-bar" style="height:77%"></div>
+        <div class="proj-badge">AI-Native · Founded Nov 2025</div>
       </div>
       <div class="proj-body">
-        <div class="proj-subtitle">Personal Build · Google AI Studio</div>
+        <div class="proj-sub">Founder &amp; Product Engineer · Google AI Studio</div>
         <div class="proj-title">Trading Alpha</div>
-        <p class="proj-desc">
-          An AI-native trading journal that acts as a "virtual risk officer" for active
-          traders. Built using Vision-to-Data models to analyze chart setups and surface
-          actionable risk insights — rapidly prototyped in Google AI Studio.
-        </p>
-        <a href="#contact" class="proj-link">
-          Learn more
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </a>
+        <p class="proj-desc">An AI-native trading journal acting as a <strong>"virtual risk officer"</strong> for active traders. Built a Scoring Wizard to gatekeep low-quality trades and an automated VTS engine for position sizing — using Vision-to-Data models to analyze live chart setups.</p>
+        <a href="#contact" class="proj-link">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
       </div>
     </div>
 
-    <!-- Mac Real Studios -->
     <div class="proj-card reveal d2">
-      <div class="proj-img proj-img-site">
-        <div class="proj-img-inner" style="flex-direction:column; gap:10px;">
-          <span style="font-size:48px;">🛍️</span>
-          <div style="display:flex;gap:6px;margin-top:4px;">
-            <div style="width:28px;height:4px;background:#c8b89a;border-radius:2px;"></div>
-            <div style="width:20px;height:4px;background:#d8c8b0;border-radius:2px;"></div>
-            <div style="width:24px;height:4px;background:#c0b090;border-radius:2px;"></div>
-          </div>
+      <div class="proj-img proj-mac">
+        🛍️
+        <div class="proj-mac-lines">
+          <div class="proj-mac-line" style="width:100%"></div>
+          <div class="proj-mac-line" style="width:75%"></div>
+          <div class="proj-mac-line" style="width:90%"></div>
         </div>
-        <div class="proj-badge">Founder · DTC Brand</div>
+        <div class="proj-badge">Founder · DTC · Shopify</div>
       </div>
       <div class="proj-body">
-        <div class="proj-subtitle">Personal Venture · Shopify · A/B Testing</div>
+        <div class="proj-sub">Founder &amp; Product Lead · Mac Real Studios</div>
         <div class="proj-title">Mac Real Studios</div>
-        <p class="proj-desc">
-          Launched a direct-to-consumer brand on Shopify. Used A/B testing on ad creatives
-          to reduce Customer Acquisition Cost (CAC) by <strong style="color:var(--ink)">30%</strong>,
-          generating $2,000+ in revenue while establishing sustainability partnerships.
-        </p>
-        <a href="#contact" class="proj-link">
-          Learn more
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </a>
+        <p class="proj-desc">Launched a direct-to-consumer brand on Shopify. Used <strong>A/B testing on ad creatives</strong> to reduce Customer Acquisition Cost by <strong>30%</strong>, generating $2,000+ in revenue while managing full product lifecycle and establishing sustainability partnerships.</p>
+        <a href="#contact" class="proj-link">Learn more <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ⑤ EXPERIENCE -->
-<section class="section" id="experience" style="background:var(--cream);">
+<!-- ⑥ EXPERIENCE -->
+<section class="section experience" id="experience">
   <div class="eyebrow reveal">Professional Experience</div>
-  <h2 class="expertise-heading reveal d1" style="margin-bottom:56px;">
-    10 years on<br><em>the front lines.</em>
-  </h2>
+  <h2 class="expertise-h reveal d1" style="margin-bottom:64px;">10 years on<br><em>the front lines.</em></h2>
+  <div class="exp-roles">
 
-  <div style="display:flex;flex-direction:column;gap:2px;background:var(--line);">
-
-    <!-- Fidelity -->
-    <div class="exp-card reveal" style="background:var(--white);padding:48px 52px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+    <div class="role-card reveal">
+      <div class="role-header">
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;margin-bottom:6px;">Trade Specialist</div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">Fidelity Investments · Hybrid</div>
+          <div class="role-title">Trade Specialist</div>
+          <div class="role-company">Fidelity Investments · Hybrid</div>
         </div>
-        <div style="font-size:11px;letter-spacing:2px;color:var(--gray);text-align:right;">May 2022 – Present</div>
+        <div class="role-date">May 2022 – Present</div>
       </div>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Synthesized qualitative feedback from high-value traders to identify UX friction points in <strong style="color:var(--ink);">Active Trader Pro</strong>, escalating critical bugs to product teams via <strong style="color:var(--ink);">Jira</strong>.
-        </li>
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Executed high-stakes trade instructions (options, margin, IPOs) with <strong style="color:var(--ink);">100% accuracy</strong>, earning the <strong style="color:var(--ink);">Trade Accuracy Award (Nov 2025)</strong>.
-        </li>
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Partnered with retirement and planning teams to streamline the workplace rollover journey, reducing customer wait times and increasing satisfaction scores.
-        </li>
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Provided technical navigation and strategic guidance on retirement planning and market execution, driving long-term product engagement.
-        </li>
+      <ul class="role-bullets">
+        <li>Synthesized qualitative feedback from high-value traders to identify UX friction points in <strong>Active Trader Pro</strong>, escalating critical bugs to product teams via <strong>Jira</strong> to drive platform improvements.</li>
+        <li>Executed high-stakes trade instructions (options, margin, IPOs) with <strong>100% accuracy</strong>, earning the <strong>Trade Accuracy Award (Nov 2025)</strong> for maintaining perfect execution under pressure.</li>
+        <li>Partnered with retirement and planning teams to streamline the workplace rollover journey, reducing customer wait times and increasing overall satisfaction scores.</li>
+        <li>Provided strategic guidance on retirement planning and market execution for novice and experienced investors alike, driving long-term product engagement.</li>
       </ul>
     </div>
 
-    <!-- Global Payments -->
-    <div class="exp-card reveal" style="background:var(--white);padding:48px 52px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+    <div class="role-card reveal">
+      <div class="role-header">
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;margin-bottom:6px;">Senior Technical Support Specialist</div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">Global Payments (TSYS · iMobile3) · Hybrid</div>
+          <div class="role-title">Senior Technical Support Specialist</div>
+          <div class="role-company">Global Payments (TSYS · iMobile3) · Hybrid</div>
         </div>
-        <div style="font-size:11px;letter-spacing:2px;color:var(--gray);text-align:right;">Jun 2018 – May 2022</div>
+        <div class="role-date">Jun 2018 – May 2022</div>
       </div>
-      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Orchestrated technical onboarding for <strong style="color:var(--ink);">25,000+ new merchants</strong> while scaling support operations to twice its original size.
-        </li>
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Analyzed patterns across <strong style="color:var(--ink);">9,700+ combined technical cases</strong> to identify recurring UX friction points, escalating critical bugs to engineering via Jira.
-        </li>
-        <li style="font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--red);">—</span>
-          Reduced average resolution times to <strong style="color:var(--ink);">92% below SLA targets</strong> by building a centralized internal knowledge base, significantly improving First Contact Resolution (FCR).
-        </li>
+      <ul class="role-bullets">
+        <li>Orchestrated technical onboarding for <strong>25,000+ new merchants</strong> while scaling support operations to twice its original size to meet rapid expansion demands.</li>
+        <li>Analyzed patterns across <strong>9,700+ combined technical cases</strong> to identify recurring UX friction points, escalating critical bugs to engineering via Jira to drive product stabilization.</li>
+        <li>Reduced average resolution times to <strong>92% below SLA targets</strong> by building a centralized internal knowledge base that significantly improved team proficiency and First Contact Resolution (FCR).</li>
       </ul>
     </div>
 
   </div>
 </section>
 
-<!-- ⑥ CERTIFICATIONS -->
-<section class="section" id="certifications" style="background:var(--white);">
-  <div class="eyebrow reveal">Education & Certifications</div>
-  <h2 class="expertise-heading reveal d1" style="margin-bottom:56px;">
-    Always<br><em>learning.</em>
-  </h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);">
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Mar 2026 · Coursera – Google</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">Google Business Intelligence Specialization</div>
+<!-- ⑦ CERT TICKER -->
+<div class="cert-section">
+  <div class="cert-label">Education &amp; Certifications</div>
+  <div class="cert-ticker-wrap">
+    <div class="cert-ticker">
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google Business Intelligence Specialization</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google AI Professional Specialization</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Feb 2026</span><span class="cert-item-name">Google Prompting Essentials</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Dec 2025</span><span class="cert-item-name">IBM Product Management Professional Certificate</span><span class="cert-item-org">Coursera · IBM</span></div>
+      <div class="cert-item"><span class="cert-item-year">Nov 2025</span><span class="cert-item-name">AI for Work and Life</span><span class="cert-item-org">University of North Florida</span></div>
+      <div class="cert-item"><span class="cert-item-year">Jan 2023</span><span class="cert-item-name">Series 7 · Series 63 · SIE</span><span class="cert-item-org">FINRA</span></div>
+      <div class="cert-item"><span class="cert-item-year">Oct 2018</span><span class="cert-item-name">Android Development Nanodegree</span><span class="cert-item-org">Udacity</span></div>
+      <!-- duplicate for loop -->
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google Business Intelligence Specialization</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google AI Professional Specialization</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Feb 2026</span><span class="cert-item-name">Google Prompting Essentials</span><span class="cert-item-org">Coursera · Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Dec 2025</span><span class="cert-item-name">IBM Product Management Professional Certificate</span><span class="cert-item-org">Coursera · IBM</span></div>
+      <div class="cert-item"><span class="cert-item-year">Nov 2025</span><span class="cert-item-name">AI for Work and Life</span><span class="cert-item-org">University of North Florida</span></div>
+      <div class="cert-item"><span class="cert-item-year">Jan 2023</span><span class="cert-item-name">Series 7 · Series 63 · SIE</span><span class="cert-item-org">FINRA</span></div>
+      <div class="cert-item"><span class="cert-item-year">Oct 2018</span><span class="cert-item-name">Android Development Nanodegree</span><span class="cert-item-org">Udacity</span></div>
     </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal d1">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Mar 2026 · Coursera – Google</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">Google AI Professional Specialization</div>
-    </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal d2">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Feb 2026 · Coursera – Google</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">Google Prompting Essentials Specialization</div>
-    </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Dec 2025 · Coursera – IBM</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">IBM Product Management Professional Certificate</div>
-    </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal d1">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Nov 2025 · University of North Florida</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">AI for Work and Life</div>
-    </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;" class="exp-card reveal d2">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Jan 2023 · FINRA</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">Series 7, Series 63 & SIE</div>
-    </div>
-
-    <div style="background:var(--white);padding:36px 36px 40px;grid-column:span 3;" class="exp-card reveal">
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Oct 2018 · Udacity</div>
-      <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:400;margin-bottom:6px;line-height:1.3;">Android Development Nanodegree</div>
-    </div>
-
   </div>
-</section>
+</div>
 
-<!-- ⑤ CONTACT -->
+<!-- ⑧ CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-left">
     <div class="eyebrow reveal">Get in Touch</div>
-    <h2 class="contact-heading reveal d1">
-      Let's build<br><em>something.</em>
-    </h2>
+    <h2 class="contact-h reveal d1">Let's build<br><em>something.</em></h2>
     <div class="contact-rows">
       <div class="contact-row reveal d2">
         <span class="cr-label">Email</span>
@@ -411,24 +809,19 @@
       </div>
       <div class="contact-row reveal d3">
         <span class="cr-label">Location</span>
-        <span class="cr-val">United States</span>
+        <span class="cr-val">Jacksonville, FL</span>
       </div>
       <div class="contact-row reveal d4">
         <span class="cr-label">Status</span>
-        <span class="cr-val status-live"><span class="s-dot"></span>Open to APM / Product Analyst roles</span>
+        <span class="cr-val status-row"><span class="s-dot"></span>Open to APM / Product Analyst roles</span>
       </div>
     </div>
   </div>
   <div class="contact-right reveal">
-    <p class="c-eyebrow">Ready to collaborate?</p>
-    <p class="c-headline">"I've spent a decade understanding users. Let me do the same for your product."</p>
-    <p class="c-note">
-      Seeking Associate Product Manager or Product Analyst roles in FinTech, EdTech,
-      or AI-driven consumer apps.
-    </p>
-    <a href="mailto:suited_gain0y@icloud.com" class="btn-white-solid">
-      Send a Message →
-    </a>
+    <p class="cr-eyebrow">Ready to collaborate?</p>
+    <p class="cr-headline">"I've spent a decade understanding users. Let me do the same for your product."</p>
+    <p class="cr-note">Seeking Associate Product Manager or Product Analyst roles in FinTech, EdTech, or AI-driven consumer apps.</p>
+    <a href="mailto:suited_gain0y@icloud.com" class="btn-white">Send a Message →</a>
   </div>
 </section>
 
@@ -437,8 +830,7 @@
   <div class="foot-logo">MT<em>.</em></div>
   <div class="foot-links">
     <a href="#about">About</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#projects">Projects</a>
+    <a href="#projects">Work</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
     <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -447,13 +839,66 @@
 </footer>
 
 <script>
+  /* ── NAV ── */
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('up', window.scrollY > 50));
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 
+  /* ── TYPEWRITER ── */
+  const lines = [
+    "I don't guess what users want.",
+    "I've spent 10 years listening.",
+    "I build products that just work.",
+    "Voice of Customer is my superpower."
+  ];
+  let li = 0, ci = 0, deleting = false;
+  const el = document.querySelector('.typed-text');
+  function type() {
+    const current = lines[li];
+    if (!deleting) {
+      el.textContent = current.slice(0, ++ci);
+      if (ci === current.length) { deleting = true; return setTimeout(type, 2200); }
+    } else {
+      el.textContent = current.slice(0, --ci);
+      if (ci === 0) { deleting = false; li = (li + 1) % lines.length; return setTimeout(type, 400); }
+    }
+    setTimeout(type, deleting ? 38 : 58);
+  }
+  setTimeout(type, 1200);
+
+  /* ── SCROLL REVEAL ── */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── ANIMATED COUNTERS ── */
+  function formatNum(val, target, suffix) {
+    if (target === 25000) return Math.round(val / 1000).toLocaleString() + 'K+';
+    if (suffix === '%') return Math.round(val) + '%';
+    if (suffix === '+') return Math.round(val).toLocaleString() + '+';
+    if (suffix === 'yrs') return Math.round(val) + '+';
+    return Math.round(val).toLocaleString();
+  }
+
+  const counterIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = formatNum(ease * target, target, suffix);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      counterIO.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
 </script>
 </body>
 </html>
