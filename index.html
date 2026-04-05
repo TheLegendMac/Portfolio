@@ -8,32 +8,23 @@
 <meta property="og:title" content="Markquel Taylor — Product Manager">
 <meta property="og:description" content="10 years in FinTech. Fidelity Trade Specialist. Frog Tank Innovation Winner. AI Builder.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://markqueltaylor.github.io">
-<meta property="og:image" content="https://markqueltaylor.github.io/profile.png">
+<meta property="og:url" content="https://TheLegendMac.github.io/Portfolio">
+<meta property="og:image" content="https://TheLegendMac.github.io/Portfolio/profile.png">
 <title>Markquel Taylor — Product Manager</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23c1281b'/><text y='.9em' font-size='58' font-family='Georgia,serif' font-weight='bold' fill='white' x='50%' text-anchor='middle' dominant-baseline='middle' dy='.05em'>MT</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --white:#ffffff; --cream:#f8f6f3; --ink:#141414; --gray:#8a8a8a;
-  --line:#e8e5e1; --red:#c1281b; --red-deep:#a82217; --red-dim:#faf0ef;
-  --sp-xl:120px; --sp-md:48px;
-  --pad-x:clamp(20px,5vw,64px);
-}
+:root{--white:#ffffff;--cream:#f8f6f3;--ink:#141414;--gray:#8a8a8a;--line:#e8e5e1;--red:#c1281b;--red-deep:#a82217;--red-dim:#faf0ef;--sp-xl:120px;--sp-md:48px;--pad-x:clamp(20px,5vw,64px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:80px}
 body{background:var(--white);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-
-/* FAB */
 .resume-fab{position:fixed;bottom:28px;right:20px;z-index:300;display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);padding:13px 22px;border-radius:100px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;box-shadow:0 8px 28px rgba(20,20,20,.2);transition:background .2s,transform .2s,box-shadow .2s;opacity:0;animation:fabIn .5s 1.5s forwards;white-space:nowrap}
 .resume-fab:hover{background:var(--red);transform:translateY(-2px);box-shadow:0 12px 36px rgba(193,40,27,.25)}
 .resume-fab svg{flex-shrink:0}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad-x);transition:background .35s,box-shadow .35s}
 nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
 .nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;text-decoration:none;letter-spacing:.3px;z-index:201;color:var(--white);transition:color .35s ease}
@@ -60,8 +51,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .nav-drawer a{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:400;transition:color .2s}
 .nav-drawer a:hover{color:var(--red)}
 .nav-drawer .drawer-pill{background:var(--red);color:var(--white);padding:14px 40px;border-radius:100px}
-
-/* HERO — SPLIT LAYOUT */
 .hero{min-height:100svh;background:var(--red);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:80px}
 .hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,8vh,96px) clamp(32px,5vw,80px) clamp(48px,8vh,96px) var(--pad-x);position:relative;z-index:1}
@@ -78,33 +67,25 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .hero-right{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;opacity:0;animation:fadeIn 1s .4s forwards}
 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--red) 0%,transparent 30%)}
-
-/* Ticker */
 .hero-ticker-wrap{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.08);overflow:hidden;z-index:2}
 .ticker-track{display:flex;width:max-content;animation:tickerScroll 30s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:flex;align-items:center;gap:10px;padding:13px clamp(24px,4vw,48px);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap;border-right:1px solid rgba(255,255,255,.07)}
 .ticker-item span{color:rgba(255,255,255,.65)}
 .ticker-dot{width:4px;height:4px;border-radius:50%;background:var(--red);opacity:.7;flex-shrink:0}
-
-/* STATS */
 .stats-bar{background:var(--ink);display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #1e1e1e}
 .stat-cell{padding:clamp(32px,5vw,52px) clamp(16px,3vw,48px);border-right:1px solid #1e1e1e;text-align:center}
 .stat-cell:last-child{border-right:none}
 .stat-number{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,60px);font-weight:700;line-height:1;color:var(--white);margin-bottom:10px}
 .stat-label{font-size:clamp(9px,1.5vw,10px);letter-spacing:2px;text-transform:uppercase;color:#555}
-
-/* SECTION */
 .section{padding:var(--sp-xl) var(--pad-x)}
 .eyebrow{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:var(--sp-md)}
 .eyebrow::before{content:'';width:28px;height:1px;background:var(--red);display:block;flex-shrink:0}
-
-/* ABOUT */
 .about{background:var(--white);border-top:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,96px);align-items:center}
 .about-photo{position:relative}
 .about-photo-inner{width:100%;aspect-ratio:3/4;background:var(--cream);position:relative;overflow:hidden}
-.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;transition:transform .5s ease}
 .about-photo:hover .about-photo-inner img{transform:scale(1.03)}
 .about-photo-label{position:absolute;bottom:0;left:0;right:0;background:var(--red);padding:14px 20px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8)}
 .about-photo-frame{position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;border:1px solid var(--line);z-index:-1}
@@ -116,8 +97,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .about-pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{background:var(--cream);border:1px solid var(--line);padding:7px 14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);transition:border-color .2s,background .2s;cursor:default}
 .pill:hover{border-color:var(--red);background:var(--red-dim)}
-
-/* EXPERTISE */
 .expertise{background:var(--cream);border-top:1px solid var(--line)}
 .section-h{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,5vw,68px);line-height:1.05;letter-spacing:-.5px;margin-bottom:clamp(40px,6vw,72px)}
 .section-h em{font-style:italic;color:var(--red)}
@@ -131,8 +110,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .exp-desc{font-size:14px;line-height:1.85;color:var(--gray);margin-bottom:24px}
 .exp-tags{display:flex;flex-wrap:wrap;gap:6px}
 .exp-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);background:var(--red-dim);padding:5px 10px}
-
-/* PROJECTS */
 .projects{background:var(--white);border-top:1px solid var(--line)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
 .proj-card{background:var(--white);display:flex;flex-direction:column;transition:background .3s;cursor:pointer}
@@ -155,8 +132,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .proj-link:hover{color:var(--red);border-color:var(--red)}
 .proj-link svg{transition:transform .2s}
 .proj-link:hover svg{transform:translateX(3px)}
-
-/* CASE STUDY MODAL */
 .modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(20,20,20,.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal{background:var(--white);max-width:720px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(24px);transition:transform .3s}
@@ -175,8 +150,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .modal-section-text{font-size:15px;line-height:1.9;color:var(--gray)}
 .modal-section-text strong{color:var(--ink);font-weight:500}
 .modal-outcome{background:var(--cream);border-left:3px solid var(--red);padding:20px 24px;margin-top:16px;font-size:15px;line-height:1.8;color:var(--ink)}
-
-/* EXPERIENCE */
 .experience{background:var(--cream);border-top:1px solid var(--line)}
 .exp-roles{display:flex;flex-direction:column;gap:2px;background:var(--line)}
 .role-card{background:var(--cream);padding:clamp(36px,5vw,56px) clamp(24px,5vw,56px);transition:background .3s}
@@ -187,12 +160,9 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .role-date{font-size:11px;letter-spacing:1.5px;color:var(--gray);padding-top:4px;white-space:nowrap}
 .role-bullets{list-style:none;display:flex;flex-direction:column;gap:12px}
 .role-bullets li{font-size:14px;line-height:1.85;color:var(--gray);padding-left:20px;position:relative}
-.role-bullets li::before{content:'—';position:absolute;left:0;color:var(--red)}
+.role-bullets li::before{content:'--';position:absolute;left:0;color:var(--red)}
 .role-bullets strong{color:var(--ink);font-weight:500}
-
-/* BRIDGE CTA */
 .bridge{background:var(--ink);padding:clamp(64px,10vw,100px) var(--pad-x);display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px}
-.bridge-text{}
 .bridge-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#555;margin-bottom:20px}
 .bridge-headline{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(28px,4vw,52px);line-height:1.15;color:var(--white)}
 .bridge-headline em{font-style:italic;color:var(--red)}
@@ -201,8 +171,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .btn-red:hover{background:var(--red-deep)}
 .btn-ghost-light{border:1px solid #333;color:#555;padding:16px 36px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;white-space:nowrap;transition:border-color .2s,color .2s;text-align:center}
 .btn-ghost-light:hover{border-color:#666;color:var(--white)}
-
-/* CERT TICKER */
 .cert-section{background:var(--ink);padding:clamp(40px,6vw,64px) 0;border-top:1px solid #1e1e1e;overflow:hidden}
 .cert-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#444;margin-bottom:28px;padding:0 var(--pad-x)}
 .cert-ticker-wrap{overflow:hidden}
@@ -212,8 +180,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .cert-item-year{font-size:10px;letter-spacing:2px;color:var(--red)}
 .cert-item-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.6)}
 .cert-item-org{font-size:10px;letter-spacing:1.5px;color:#444;text-transform:uppercase}
-
-/* CONTACT */
 .contact{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
 .contact-left{padding:var(--sp-xl) var(--pad-x);background:var(--white);border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
 .contact-h{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(30px,4.5vw,64px);line-height:1.05;letter-spacing:-.5px;margin-bottom:var(--sp-md)}
@@ -231,8 +197,6 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .cr-note{font-size:14px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:40px;max-width:340px}
 .btn-white{display:inline-flex;align-items:center;gap:12px;background:var(--white);color:var(--red);padding:15px 32px;font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;width:fit-content;transition:background .2s,color .2s;border-radius:2px}
 .btn-white:hover{background:var(--ink);color:var(--white)}
-
-/* FOOTER */
 footer{background:var(--ink);padding:24px var(--pad-x);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .foot-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white)}
 .foot-logo em{color:var(--red);font-style:normal}
@@ -240,13 +204,9 @@ footer{background:var(--ink);padding:24px var(--pad-x);display:flex;justify-cont
 .foot-links a{font-size:11px;letter-spacing:1.5px;color:#444;text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--white)}
 footer p{font-size:11px;letter-spacing:1.5px;color:#333}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.45s}
-
-/* KEYFRAMES */
 @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fabIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
@@ -254,12 +214,8 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes pillPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.3)}60%{box-shadow:0 0 0 8px rgba(255,255,255,0)}}
-
-/* TABLET */
 @media(max-width:900px){
-  .nav-links{display:none}
-  .nav-burger{display:flex}
-  .nav-drawer{display:flex}
+  .nav-links{display:none}.nav-burger{display:flex}.nav-drawer{display:flex}
   .hero{grid-template-columns:1fr;min-height:100svh}
   .hero-right{height:360px;order:-1;padding-top:80px}
   .hero-left{padding-bottom:80px}
@@ -268,48 +224,32 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   .stat-cell:nth-child(2){border-right:none}
   .stat-cell:nth-child(3){border-top:1px solid #1e1e1e}
   .stat-cell:nth-child(4){border-top:1px solid #1e1e1e;border-right:none}
-  .about-grid{grid-template-columns:1fr}
-  .about-photo{max-width:360px;margin:0 auto}
-  .about-photo-frame{display:none}
-  .exp-grid{grid-template-columns:1fr 1fr}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .contact{grid-template-columns:1fr}
-  .contact-left{border-right:none;border-bottom:1px solid var(--line)}
-  .bridge{grid-template-columns:1fr}
-  .bridge-actions{flex-direction:row}
-  .modal-header{padding:32px 28px 28px}
-  .modal-body{padding:32px 28px 40px}
+  .about-grid{grid-template-columns:1fr}.about-photo{max-width:360px;margin:0 auto}.about-photo-frame{display:none}
+  .exp-grid{grid-template-columns:1fr 1fr}.proj-grid{grid-template-columns:1fr 1fr}
+  .contact{grid-template-columns:1fr}.contact-left{border-right:none;border-bottom:1px solid var(--line)}
+  .bridge{grid-template-columns:1fr}.bridge-actions{flex-direction:row}
+  .modal-header{padding:32px 28px 28px}.modal-body{padding:32px 28px 40px}
 }
-
-/* MOBILE */
 @media(max-width:600px){
   :root{--sp-xl:72px}
   .resume-fab{bottom:20px;right:16px;padding:11px 18px;font-size:10px}
-  .exp-grid{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
-  .contact-row{flex-direction:column;align-items:flex-start;gap:4px}
-  .cr-val{text-align:left}
-  footer{flex-direction:column;text-align:center}
-  .foot-links{justify-content:center}
+  .exp-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}
+  .contact-row{flex-direction:column;align-items:flex-start;gap:4px}.cr-val{text-align:left}
+  footer{flex-direction:column;text-align:center}.foot-links{justify-content:center}
   .bridge-actions{flex-direction:column}
-  .modal-header{padding:28px 20px 24px}
-  .modal-body{padding:24px 20px 36px}
+  .modal-header{padding:28px 20px 24px}.modal-body{padding:24px 20px 36px}
 }
-
 @media print{
   .resume-fab,nav,.hero-ticker-wrap,.cert-section,.modal-overlay{display:none!important}
-  .hero{min-height:auto;page-break-after:always}
-  .reveal{opacity:1!important;transform:none!important}
+  .hero{min-height:auto;page-break-after:always}.reveal{opacity:1!important;transform:none!important}
 }
 </style>
 </head>
 <body>
-
 <a href="APM_Resume_2026_2_0_Shortened.docx" class="resume-fab" download="Markquel_Taylor_Resume.docx" aria-label="Download Resume">
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
   Resume
 </a>
-
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <a href="#" class="nav-logo" aria-label="Home">Markquel <em>Taylor</em></a>
   <ul class="nav-links" role="list">
@@ -323,7 +263,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="nav-drawer" id="drawer" role="dialog" aria-label="Navigation menu">
   <a href="#about" onclick="closeDrawer()">About</a>
   <a href="#projects" onclick="closeDrawer()">Work</a>
@@ -332,8 +271,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a>
   <a href="#contact" class="drawer-pill" onclick="closeDrawer()">Open to Work</a>
 </div>
-
-<!-- CASE STUDY MODAL -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
     <div class="modal-header">
@@ -345,18 +282,11 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
-
-<!-- HERO — SPLIT -->
 <section class="hero" aria-label="Introduction">
   <div class="hero-ring" style="width:min(700px,90vw);height:min(700px,90vw);"></div>
   <div class="hero-left">
-    <div class="hero-badge">
-      <span class="live-dot" aria-hidden="true"></span>
-      Open to APM &amp; Product Analyst Roles
-    </div>
-    <h1 class="hero-headline" aria-live="polite">
-      <span class="typed-text"></span><span class="typed-cursor" aria-hidden="true"></span>
-    </h1>
+    <div class="hero-badge"><span class="live-dot" aria-hidden="true"></span>Open to APM &amp; Product Analyst Roles</div>
+    <h1 class="hero-headline" aria-live="polite"><span class="typed-text"></span><span class="typed-cursor" aria-hidden="true"></span></h1>
     <p class="hero-static">Product Manager &middot; FinTech &middot; AI Builder</p>
     <div class="hero-actions">
       <a href="#projects" class="btn-solid">View My Work</a>
@@ -364,7 +294,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
   <div class="hero-right">
-    <img src="profile.png" alt="Markquel Taylor — Product Manager" class="hero-photo" loading="eager">
+    <img src="profile.png" alt="Markquel Taylor" class="hero-photo" loading="eager">
     <div class="hero-photo-overlay"></div>
   </div>
   <div class="hero-ticker-wrap" aria-hidden="true">
@@ -386,16 +316,12 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </section>
-
-<!-- STATS -->
 <div class="stats-bar" role="region" aria-label="Key metrics">
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="25000" data-format="25K+">0</span></div><div class="stat-label">Merchants Onboarded</div></div>
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="9700" data-format="9,700+">0</span></div><div class="stat-label">Technical Cases Analyzed</div></div>
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="100" data-format="100%">0</span></div><div class="stat-label">Trade Execution Accuracy</div></div>
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="10" data-format="10+">0</span></div><div class="stat-label">Years in FinTech</div></div>
 </div>
-
-<!-- ABOUT -->
 <section class="section about" id="about">
   <div class="about-grid">
     <div class="about-photo reveal">
@@ -419,8 +345,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </section>
-
-<!-- EXPERTISE -->
 <section class="section expertise" id="expertise">
   <div class="eyebrow reveal">What I Bring</div>
   <h2 class="section-h reveal d1">Strategy, fluency,<br><em>and execution.</em></h2>
@@ -445,8 +369,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </section>
-
-<!-- PROJECTS -->
 <section class="section projects" id="projects">
   <div class="eyebrow reveal">Selected Work</div>
   <h2 class="section-h reveal d1">Built, pitched,<br><em>and shipped.</em></h2>
@@ -472,7 +394,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
       <div class="proj-body">
         <div class="proj-sub">Founder &amp; Product Engineer &middot; Google AI Studio</div>
         <div class="proj-title">Trading Alpha</div>
-        <p class="proj-desc">An AI-native trading journal acting as a <strong>&#x201C;virtual risk officer.&#x201D;</strong> Scoring Wizard, VTS engine, and Vision-to-Data chart analysis for active traders.</p>
+        <p class="proj-desc">An AI-native trading journal acting as a <strong>virtual risk officer.</strong> Scoring Wizard, VTS engine, and Vision-to-Data chart analysis for active traders.</p>
         <span class="proj-link">Read case study <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
       </div>
     </div>
@@ -490,8 +412,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </section>
-
-<!-- EXPERIENCE -->
 <section class="section experience" id="experience">
   <div class="eyebrow reveal">Professional Experience</div>
   <h2 class="section-h reveal d1" style="margin-bottom:clamp(40px,6vw,64px)">10 years on<br><em>the front lines.</em></h2>
@@ -521,8 +441,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </section>
-
-<!-- BRIDGE CTA -->
 <div class="bridge reveal">
   <div class="bridge-text">
     <div class="bridge-label">Ready to collaborate?</div>
@@ -533,8 +451,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="btn-ghost-light">Download Resume</a>
   </div>
 </div>
-
-<!-- CERT TICKER -->
 <div class="cert-section" aria-label="Certifications">
   <div class="cert-label">Education &amp; Certifications</div>
   <div class="cert-ticker-wrap" aria-hidden="true">
@@ -556,8 +472,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     </div>
   </div>
 </div>
-
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-left">
     <div class="eyebrow reveal">Get in Touch</div>
@@ -565,7 +479,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <div class="contact-rows">
       <div class="contact-row reveal d2">
         <span class="cr-label">LinkedIn</span>
-        <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer" class="cr-val">linkedin.com/in/markqueltaylor &#x2197;</a>
+        <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer" class="cr-val">View Profile &#x2197;</a>
       </div>
       <div class="contact-row reveal d3">
         <span class="cr-label">Location</span>
@@ -581,10 +495,9 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <p class="cr-eyebrow">Ready to collaborate?</p>
     <p class="cr-headline">&#x201C;I&#x2019;ve spent a decade understanding users. Let me do the same for your product.&#x201D;</p>
     <p class="cr-note">Seeking Associate Product Manager or Product Analyst roles in FinTech, EdTech, or AI-driven consumer apps.</p>
-    <a href="/cdn-cgi/l/email-protection#91e2e4f8e5f4f5cef6f0f8ffa1e8d1f8f2fdfee4f5bff2fefc" class="btn-white">Send a Message &rarr;</a>
+    <a href="mailto:suited_gain0y@icloud.com" class="btn-white">Send a Message &rarr;</a>
   </div>
 </section>
-
 <footer>
   <div class="foot-logo">MT<em>.</em></div>
   <div class="foot-links">
@@ -594,172 +507,67 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
   <p>&copy; 2026 Markquel Taylor</p>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* NAV SCROLL */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-}, { passive: true });
-
-/* HAMBURGER */
-const burger = document.getElementById('burger');
-const drawer = document.getElementById('drawer');
-let drawerOpen = false;
-function openDrawer() {
-  drawerOpen = true;
-  burger.classList.add('open');
-  drawer.classList.add('open');
-  burger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>80)},{passive:true});
+var burger=document.getElementById('burger');
+var drawer=document.getElementById('drawer');
+var drawerOpen=false;
+function openDrawer(){drawerOpen=true;burger.classList.add('open');drawer.classList.add('open');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+function closeDrawer(){drawerOpen=false;burger.classList.remove('open');drawer.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+burger.addEventListener('click',function(){drawerOpen?closeDrawer():openDrawer();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeModal();}});
+var lines=["I don't guess what users want.","I've spent 10 years listening.","I build products that just work.","Voice of Customer is my superpower."];
+var li=0,ci=0,deleting=false;
+var typedEl=document.querySelector('.typed-text');
+function type(){
+  var cur=lines[li];
+  if(!deleting){typedEl.textContent=cur.slice(0,++ci);if(ci===cur.length){deleting=true;return setTimeout(type,2400);}}
+  else{typedEl.textContent=cur.slice(0,--ci);if(ci===0){deleting=false;li=(li+1)%lines.length;return setTimeout(type,500);}}
+  setTimeout(type,deleting?36:55);
 }
-function closeDrawer() {
-  drawerOpen = false;
-  burger.classList.remove('open');
-  drawer.classList.remove('open');
-  burger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-burger.addEventListener('click', () => drawerOpen ? closeDrawer() : openDrawer());
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeDrawer(); closeModal(); }
-});
-
-/* TYPEWRITER */
-const lines = [
-  "I don't guess what users want.",
-  "I've spent 10 years listening.",
-  "I build products that just work.",
-  "Voice of Customer is my superpower."
-];
-let li = 0, ci = 0, deleting = false;
-const typedEl = document.querySelector('.typed-text');
-function type() {
-  const cur = lines[li];
-  if (!deleting) {
-    typedEl.textContent = cur.slice(0, ++ci);
-    if (ci === cur.length) { deleting = true; return setTimeout(type, 2400); }
-  } else {
-    typedEl.textContent = cur.slice(0, --ci);
-    if (ci === 0) { deleting = false; li = (li + 1) % lines.length; return setTimeout(type, 500); }
-  }
-  setTimeout(type, deleting ? 36 : 55);
-}
-setTimeout(type, 1000);
-
-/* SCROLL REVEAL */
-const revealIO = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
-
-/* COUNTERS */
-const counterIO = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.target;
-    const fmt = el.dataset.format;
-    const duration = 1800;
-    const start = performance.now();
-    function step(now) {
-      const p = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      const val = Math.round(ease * target);
-      if (p < 1) {
-        if (target === 25000) el.textContent = Math.round(ease * 25) + 'K+';
-        else if (fmt.includes('%')) el.textContent = val + '%';
-        else el.textContent = val.toLocaleString() + '+';
+setTimeout(type,1000);
+var revealIO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revealIO.observe(el);});
+var counterIO=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting)return;
+    var el=e.target,target=+el.dataset.target,fmt=el.dataset.format,duration=1800,start=performance.now();
+    function step(now){
+      var p=Math.min((now-start)/duration,1),ease=1-Math.pow(1-p,3),val=Math.round(ease*target);
+      if(p<1){
+        if(target===25000)el.textContent=Math.round(ease*25)+'K+';
+        else if(fmt.includes('%'))el.textContent=val+'%';
+        else el.textContent=val.toLocaleString()+'+';
         requestAnimationFrame(step);
-      } else {
-        el.textContent = fmt;
-      }
+      }else{el.textContent=fmt;}
     }
     requestAnimationFrame(step);
     counterIO.unobserve(el);
   });
-}, { threshold: 0.5 });
-document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
-
-/* CASE STUDY DATA */
-const cases = {
-  finny: {
-    eyebrow: 'Case Study &middot; Fidelity Investments &middot; Dec 2024',
-    title: 'Finny &amp; Flo',
-    subtitle: 'Gamified Financial Literacy for Gen Z &mdash; Frog Tank Innovation Challenge',
-    body: `
-      <div class="modal-section">
-        <div class="modal-section-label">The Problem</div>
-        <p class="modal-section-text">Gen Z investors are entering the market without foundational financial literacy, leading to poor trading decisions, high churn on platforms like Fidelity, and long-term brand distrust. Existing educational tools are dry, text-heavy, and fail to meet users where they are.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">My Approach</div>
-        <p class="modal-section-text">I led a cross-functional team through the full product lifecycle: discovery interviews to identify the core literacy gaps, competitive analysis of existing fintech onboarding flows, and rapid prototyping of a <strong>board game concept</strong> designed to make financial concepts tangible and social. I defined the MVP feature set, mapped user journeys for first-time Gen Z investors, and built a high-fidelity pitch deck for senior leadership.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">The Outcome</div>
-        <div class="modal-outcome"><strong>Won 1st Place</strong> in Fidelity's company-wide "Frog Tank" Innovation Challenge. The concept was validated as feasible for the youth market and recognized by senior executive leadership as a differentiated approach to Gen Z acquisition and retention.</div>
-      </div>
-    `
-  },
-  trading: {
-    eyebrow: 'Case Study &middot; Personal Build &middot; Nov 2025',
-    title: 'Trading Alpha',
-    subtitle: 'AI-Native Trading Journal &mdash; Virtual Risk Officer for Active Traders',
-    body: `
-      <div class="modal-section">
-        <div class="modal-section-label">The Problem</div>
-        <p class="modal-section-text">Active traders suffer from emotional decision-making &mdash; entering low-quality setups, over-sizing positions, and failing to learn from losses. Existing journals are passive; they record but don't intervene. There was no tool acting as an objective, always-on risk officer.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">My Approach</div>
-        <p class="modal-section-text">Using <strong>Google AI Studio</strong>, I rapid-prototyped an AI-native trading journal built around two core features: a <strong>Scoring Wizard</strong> that gates low-quality trade entries before they happen, and a <strong>VTS (Variable Trade Sizing) engine</strong> that recommends position sizes based on account risk rules. I integrated Vision-to-Data models to analyze uploaded chart screenshots and extract setup quality signals automatically.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">The Outcome</div>
-        <div class="modal-outcome">A <strong>fully functional AI-native app</strong> built and launched as a solo product engineer. Demonstrates end-to-end product ownership: problem identification, rapid prototyping with AI tooling, and a working MVP that directly addresses the user's core pain point.</div>
-      </div>
-    `
-  },
-  mac: {
-    eyebrow: 'Case Study &middot; Personal Venture &middot; Shopify',
-    title: 'Mac Real Studios',
-    subtitle: 'DTC Brand Launch &mdash; Full Product Lifecycle & Growth Optimization',
-    body: `
-      <div class="modal-section">
-        <div class="modal-section-label">The Problem</div>
-        <p class="modal-section-text">Building a direct-to-consumer brand from zero requires solving two hard problems simultaneously: product-market fit and customer acquisition efficiency. Most first-time founders overspend on ads before validating creative, burning budget without learning.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">My Approach</div>
-        <p class="modal-section-text">I launched Mac Real Studios on <strong>Shopify</strong> and treated it as a product experiment from day one. Rather than choosing a single creative direction, I ran <strong>structured A/B tests on ad creatives</strong> across multiple variables: imagery, copy tone, and call-to-action framing. I tracked CAC per variant and reallocated budget to winners on a weekly cycle. I also managed the full product lifecycle including supplier relationships and sustainability partnerships.</p>
-      </div>
-      <div class="modal-section">
-        <div class="modal-section-label">The Outcome</div>
-        <div class="modal-outcome">Reduced Customer Acquisition Cost by <strong>30%</strong> through systematic A/B testing. Generated <strong>$2,000+ in revenue</strong> while maintaining profitability and establishing sustainability partnerships &mdash; all as a solo founder.</div>
-      </div>
-    `
-  }
+},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(function(el){counterIO.observe(el);});
+var cases={
+  finny:{eyebrow:'Case Study &middot; Fidelity Investments &middot; Dec 2024',title:'Finny &amp; Flo',subtitle:'Gamified Financial Literacy for Gen Z &mdash; Frog Tank Innovation Challenge',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Gen Z investors are entering the market without foundational financial literacy, leading to poor trading decisions, high churn, and long-term brand distrust. Existing educational tools are dry and fail to meet users where they are.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I led a cross-functional team through the full product lifecycle: discovery interviews to identify core literacy gaps, competitive analysis of existing fintech onboarding flows, and rapid prototyping of a <strong>board game concept</strong> designed to make financial concepts tangible and social. I defined the MVP feature set, mapped user journeys for first-time Gen Z investors, and built a high-fidelity pitch deck for senior leadership.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome"><strong>Won 1st Place</strong> in Fidelity\'s company-wide Frog Tank Innovation Challenge. Validated as feasible for the youth market and recognized by senior executive leadership as a differentiated approach to Gen Z acquisition and retention.</div></div>'},
+  trading:{eyebrow:'Case Study &middot; Personal Build &middot; Nov 2025',title:'Trading Alpha',subtitle:'AI-Native Trading Journal &mdash; Virtual Risk Officer for Active Traders',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Active traders suffer from emotional decision-making &mdash; entering low-quality setups, over-sizing positions, and failing to learn from losses. Existing journals are passive; they record but do not intervene.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">Using <strong>Google AI Studio</strong>, I rapid-prototyped an AI-native trading journal built around two core features: a <strong>Scoring Wizard</strong> that gates low-quality trade entries before they happen, and a <strong>VTS engine</strong> that recommends position sizes based on account risk rules. I integrated Vision-to-Data models to analyze uploaded chart screenshots automatically.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome">A <strong>fully functional AI-native app</strong> built and launched as a solo product engineer. Demonstrates end-to-end product ownership from problem identification through working MVP.</div></div>'},
+  mac:{eyebrow:'Case Study &middot; Personal Venture &middot; Shopify',title:'Mac Real Studios',subtitle:'DTC Brand Launch &mdash; Full Product Lifecycle and Growth Optimization',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Building a DTC brand from zero requires solving product-market fit and customer acquisition efficiency simultaneously. Most first-time founders overspend on ads before validating creative.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I launched Mac Real Studios on <strong>Shopify</strong> and ran <strong>structured A/B tests on ad creatives</strong> across imagery, copy tone, and CTA framing. I tracked CAC per variant and reallocated budget to winners weekly. I also managed the full product lifecycle including supplier relationships and sustainability partnerships.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome">Reduced Customer Acquisition Cost by <strong>30%</strong> through systematic A/B testing. Generated <strong>$2,000+ in revenue</strong> while maintaining profitability as a solo founder.</div></div>'}
 };
-
-/* MODAL */
-const modalOverlay = document.getElementById('modal');
-const modalClose = document.getElementById('modal-close');
-function openModal(key) {
-  const c = cases[key];
-  document.getElementById('modal-eyebrow').innerHTML = c.eyebrow;
-  document.getElementById('modal-title').innerHTML = c.title;
-  document.getElementById('modal-subtitle').innerHTML = c.subtitle;
-  document.getElementById('modal-body').innerHTML = c.body;
+var modalOverlay=document.getElementById('modal');
+var modalClose=document.getElementById('modal-close');
+function openModal(key){
+  var c=cases[key];
+  document.getElementById('modal-eyebrow').innerHTML=c.eyebrow;
+  document.getElementById('modal-title').innerHTML=c.title;
+  document.getElementById('modal-subtitle').innerHTML=c.subtitle;
+  document.getElementById('modal-body').innerHTML=c.body;
   modalOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
   modalClose.focus();
 }
-function closeModal() {
-  modalOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.querySelectorAll('[data-case]').forEach(card => {
-  card.addEventListener('click', () => openModal(card.dataset.case));
-});
-modalClose.addEv
+function closeModal(){modalOverlay.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('[data-case]').forEach(function(card){card.addEventListener('click',function(){openModal(card.dataset.case);});});
+modalClose.addEventListener('click',closeModal);
+modalOverlay.addEventListener('click',function(e){if(e.target===modalOverlay)closeModal();});
+</script>
+</body>
+</html>
