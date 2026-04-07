@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Markquel Taylor — Associate Product Manager. 10 years in FinTech, Voice of Customer expert, AI builder.">
+<meta name="description" content="Markquel Taylor — Associate Product Manager. Nearly a decade in FinTech, Voice of Customer expert, AI builder.">
 <meta name="theme-color" content="#c1281b">
 <meta property="og:title" content="Markquel Taylor — Product Manager">
-<meta property="og:description" content="10 years in FinTech. Fidelity Trade Specialist. Frog Tank Innovation Winner. AI Builder.">
+<meta property="og:description" content="Nearly a decade in FinTech. Fidelity Trade Specialist. Frog Tank Innovation Winner. AI Builder.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://TheLegendMac.github.io/Portfolio">
 <meta property="og:image" content="https://TheLegendMac.github.io/Portfolio/profile.png">
@@ -58,7 +58,7 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .live-dot{width:6px;height:6px;border-radius:50%;background:#5dde8a;animation:pulse 2s infinite;flex-shrink:0}
 .hero-headline{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,62px);font-weight:700;line-height:1.12;color:var(--white);margin-bottom:8px;opacity:0;animation:rise .8s .35s forwards;min-height:clamp(80px,12vw,180px)}
 .typed-cursor{display:inline-block;width:3px;height:.9em;background:rgba(255,255,255,.7);margin-left:3px;vertical-align:middle;animation:blink .75s infinite}
-.hero-static{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(15px,2vw,24px);color:rgba(255,255,255,.5);margin-bottom:40px;opacity:0;animation:rise .8s .5s forwards}
+.hero-static{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(15px,2vw,24px);color:rgba(255,255,255,.88);margin-bottom:40px;opacity:0;animation:rise .8s .5s forwards}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:rise .8s .65s forwards}
 .btn-solid{background:var(--white);color:var(--red);padding:15px clamp(24px,3vw,40px);font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,color .2s}
 .btn-solid:hover{background:var(--ink);color:var(--white)}
@@ -66,7 +66,7 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .btn-outline:hover{border-color:rgba(255,255,255,.7);color:var(--white)}
 .hero-right{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;opacity:0;animation:fadeIn 1s .4s forwards}
 .hero-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--red) 0%,transparent 30%)}
+.hero-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--red) 0%,rgba(193,40,27,.75) 16%,rgba(193,40,27,.25) 34%,transparent 52%),linear-gradient(to bottom,rgba(0,0,0,.12) 0%,transparent 35%)}
 .hero-ticker-wrap{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.08);overflow:hidden;z-index:2}
 .ticker-track{display:flex;width:max-content;animation:tickerScroll 30s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
@@ -77,7 +77,7 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .stat-cell{padding:clamp(32px,5vw,52px) clamp(16px,3vw,48px);border-right:1px solid #1e1e1e;text-align:center}
 .stat-cell:last-child{border-right:none}
 .stat-number{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,60px);font-weight:700;line-height:1;color:var(--white);margin-bottom:10px}
-.stat-label{font-size:clamp(9px,1.5vw,10px);letter-spacing:2px;text-transform:uppercase;color:#555}
+.stat-label{font-size:clamp(9px,1.5vw,10px);letter-spacing:2px;text-transform:uppercase;color:#55}
 .section{padding:var(--sp-xl) var(--pad-x)}
 .eyebrow{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:var(--sp-md)}
 .eyebrow::before{content:'';width:28px;height:1px;background:var(--red);display:block;flex-shrink:0}
@@ -115,7 +115,7 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .proj-card{background:var(--white);display:flex;flex-direction:column;transition:background .3s;cursor:pointer}
 .proj-card:hover{background:var(--red-dim)}
 .proj-img{aspect-ratio:16/10;position:relative;overflow:hidden}
-.proj-finny{background:linear-gradient(135deg,#0d3d4a,#0a6b6e);display:flex;align-items:center;justify-content:center;font-size:clamp(40px,6vw,64px)}
+.proj-finny{background:#050a0a;display:flex;align-items:center;justify-content:center;font-size:clamp(40px,6vw,64px)}
 .proj-trading{background:#0b0e14;display:flex;align-items:flex-end;padding:16px 12px;gap:4px}
 .proj-bar{flex:1;background:var(--red);border-radius:2px 2px 0 0;opacity:.65;transition:opacity .3s}
 .proj-card:hover .proj-bar{opacity:1}
@@ -219,7 +219,8 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   .hero{grid-template-columns:1fr;min-height:100svh}
   .hero-right{height:360px;order:-1;padding-top:80px}
   .hero-left{padding-bottom:80px}
-  .hero-photo-overlay{background:linear-gradient(to bottom,transparent 0%,var(--red) 85%)}
+  .hero-right{height:clamp(280px,45vw,420px)}
+  .hero-photo-overlay{background:linear-gradient(to bottom,rgba(193,40,27,.18) 0%,transparent 30%,rgba(193,40,27,.65) 70%,var(--red) 92%)}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .stat-cell:nth-child(2){border-right:none}
   .stat-cell:nth-child(3){border-top:1px solid #1e1e1e}
@@ -239,6 +240,32 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   .bridge-actions{flex-direction:column}
   .modal-header{padding:28px 20px 24px}.modal-body{padding:24px 20px 36px}
 }
+.testimonial-wrap{background:var(--ink);padding:clamp(72px,10vw,110px) var(--pad-x);border-top:1px solid #1e1e1e;border-bottom:1px solid #1e1e1e;position:relative;overflow:hidden}
+.testimonial-wrap::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(193,40,27,.08);pointer-events:none}
+.testi-context{display:flex;align-items:center;gap:12px;margin-bottom:36px}
+.testi-trophy{font-size:18px}
+.testi-badge-pill{background:rgba(193,40,27,.15);border:1px solid rgba(193,40,27,.3);padding:6px 16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);border-radius:2px}
+.testi-context-divider{width:1px;height:16px;background:#2a2a2a}
+.testi-context-detail{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#444}
+.testi-body{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.testi-mark{font-family:'Playfair Display',serif;font-size:clamp(80px,12vw,140px);line-height:.75;color:var(--red);opacity:.22;user-select:none;flex-shrink:0;margin-top:8px}
+.testi-content{}
+.testi-quote{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(18px,2.4vw,28px);line-height:1.55;color:rgba(255,255,255,.88);margin-bottom:32px}
+.testi-quote em{font-style:normal;color:var(--red)}
+.testi-divider{width:36px;height:1px;background:var(--red);margin-bottom:24px}
+.testi-attribution{display:flex;align-items:center;gap:16px}
+.testi-avatar{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;letter-spacing:1px;color:var(--white);flex-shrink:0;font-family:'Jost',sans-serif}
+.testi-name{font-size:13px;font-weight:500;color:var(--white);letter-spacing:.3px;margin-bottom:4px}
+.testi-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#555}
+.testi-context-note{margin-top:40px;border-top:1px solid #1e1e1e;padding-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#1e1e1e}
+.testi-stat{background:var(--ink);padding:20px 24px}
+.testi-stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:4px}
+.testi-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444}
+@media(max-width:700px){
+  .testi-body{grid-template-columns:1fr}
+  .testi-mark{display:none}
+  .testi-context-note{grid-template-columns:1fr}
+}
 @media print{
   .resume-fab,nav,.hero-ticker-wrap,.cert-section,.modal-overlay{display:none!important}
   .hero{min-height:auto;page-break-after:always}.reveal{opacity:1!important;transform:none!important}
@@ -257,7 +284,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a></li>
-    <li><a href="#contact" class="nav-pill">Open to Work</a></li>
+    <li><a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="nav-pill">Resume</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -269,7 +296,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <a href="#experience" onclick="closeDrawer()">Experience</a>
   <a href="#contact" onclick="closeDrawer()">Contact</a>
   <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a>
-  <a href="#contact" class="drawer-pill" onclick="closeDrawer()">Open to Work</a>
+  <a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="drawer-pill">Resume</a>
 </div>
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
@@ -286,7 +313,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <div class="hero-ring" style="width:min(700px,90vw);height:min(700px,90vw);"></div>
   <div class="hero-left">
     <div class="hero-badge"><span class="live-dot" aria-hidden="true"></span>Open to APM &amp; Product Analyst Roles</div>
-    <h1 class="hero-headline" aria-live="polite"><span class="typed-text"></span><span class="typed-cursor" aria-hidden="true"></span></h1>
+    <h1 class="hero-headline" aria-live="polite"><span class="typed-text">I don&#x2019;t guess what users want.</span><span class="typed-cursor" aria-hidden="true"></span></h1>
     <p class="hero-static">Product Manager &middot; FinTech &middot; AI Builder</p>
     <div class="hero-actions">
       <a href="#projects" class="btn-solid">View My Work</a>
@@ -320,7 +347,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="25000" data-format="25K+">0</span></div><div class="stat-label">Merchants Onboarded</div></div>
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="9700" data-format="9,700+">0</span></div><div class="stat-label">Technical Cases Analyzed</div></div>
   <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="100" data-format="100%">0</span></div><div class="stat-label">Trade Execution Accuracy</div></div>
-  <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="10" data-format="10+">0</span></div><div class="stat-label">Years in FinTech</div></div>
+  <div class="stat-cell"><div class="stat-number"><span class="counter" data-target="9" data-format="9+">0</span></div><div class="stat-label">Years in FinTech</div></div>
 </div>
 <section class="section about" id="about">
   <div class="about-grid">
@@ -332,10 +359,10 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
       <div class="about-photo-frame"></div>
     </div>
     <div>
-      <div class="eyebrow reveal">About Me</div>
+      <div class="eyebrow reveal">01 &middot; About Me</div>
       <h2 class="about-h reveal d1">Where user empathy<br>meets <em>product craft.</em></h2>
-      <p class="about-p reveal d2">I&#x2019;m a <strong>product-minded builder</strong> with a background in finance, technology, and customer-facing problem solving. After a decade on the front lines of FinTech at <strong>Fidelity Investments</strong> and <strong>Global Payments</strong>, I mastered the art of Voice of the Customer.</p>
-      <p class="about-p reveal d2">I know exactly where users get stuck, why they churn, and how a single UI friction point can cost a firm millions in trade volume. Now I build products that <strong>solve those problems before they happen.</strong></p>
+      <p class="about-p reveal d2">After nearly a decade watching financial products fail users in the same ways, I decided the best way to fix them was to build them. I&#x2019;m a product manager with deep roots in FinTech &mdash; at <strong>Fidelity Investments</strong> and <strong>Global Payments</strong>, I spent those years as the person users called when the product broke.</p>
+      <p class="about-p reveal d2">That experience gave me something most PMs don&#x2019;t have: I know exactly where users get stuck, why they churn, and what a single friction point actually costs. Now I build products designed around those failure points &mdash; before they become someone else&#x2019;s support ticket.</p>
       <div class="about-divider reveal d3"></div>
       <div class="about-pills reveal d3">
         <span class="pill">Series 7 &amp; 63</span><span class="pill">SQL</span><span class="pill">Figma</span>
@@ -346,7 +373,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
 </section>
 <section class="section expertise" id="expertise">
-  <div class="eyebrow reveal">What I Bring</div>
+  <div class="eyebrow reveal">02 &middot; What I Bring</div>
   <h2 class="section-h reveal d1">Strategy, fluency,<br><em>and execution.</em></h2>
   <div class="exp-grid">
     <div class="exp-card reveal">
@@ -358,7 +385,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <div class="exp-card reveal d1">
       <span class="exp-icon">&#9670;</span>
       <div class="exp-title">Voice of Customer</div>
-      <p class="exp-desc">10 years synthesizing real user pain into product decisions. I&#x2019;ve handled 9,700+ cases and know where FinTech products break &mdash; before engineers file a ticket.</p>
+      <p class="exp-desc">Nearly a decade synthesizing real user pain into product decisions. I&#x2019;ve handled 9,700+ cases and know where FinTech products break &mdash; before engineers file a ticket.</p>
       <div class="exp-tags"><span class="exp-tag">User Interviews</span><span class="exp-tag">Friction Mapping</span><span class="exp-tag">Jira</span></div>
     </div>
     <div class="exp-card reveal d2">
@@ -370,51 +397,85 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
 </section>
 <section class="section projects" id="projects">
-  <div class="eyebrow reveal">Selected Work</div>
+  <div class="eyebrow reveal">03 &middot; Selected Work</div>
   <h2 class="section-h reveal d1">Built, pitched,<br><em>and shipped.</em></h2>
   <div class="proj-grid">
     <div class="proj-card reveal" data-case="finny">
-      <div class="proj-img proj-finny">&#x1F438;<div class="proj-badge">&#x1F3C6; 1st Place &mdash; Frog Tank</div></div>
+      <div class="proj-img proj-finny" style="padding:0;overflow:hidden;position:relative;">
+          <div class="proj-img proj-finny" style="background-color: #0b1f24; padding:0; overflow:hidden; position:relative;">
+            <img src="finny-flo.png" alt="Finny the Frog — mascot for Finny &amp; Flo" style="width:100%; height:100%; object-fit:contain; object-position:center; display:block;">
+          </div>
+          <div class="proj-badge">&#x1F3C6; 1st Place &mdash; Inaugural Frog Tank</div>
+      </div>
       <div class="proj-body">
         <div class="proj-sub">Innovation Challenge &middot; Fidelity Investments &middot; Dec 2024</div>
         <div class="proj-title">Finny &amp; Flo</div>
-        <p class="proj-desc">Led a cross-functional team to design, prototype, and pitch a <strong>gamified financial literacy board game</strong> for Gen Z investors. Full lifecycle &mdash; discovery to executive pitch.</p>
+        <p class="proj-desc">Fidelity&#x2019;s <strong>Shark Tank-style pitch competition</strong> &mdash; 18 presentations across 2 rounds, judged by a panel of senior leaders. Led Team Big Hoppers to design and pitch <strong>Finny &amp; Flo</strong>, a gamified financial literacy game targeting middle schoolers. <strong>Inaugural Frog Tank champions.</strong></p>
         <span class="proj-link">Read case study <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
       </div>
     </div>
     <div class="proj-card reveal d1" data-case="trading">
-      <div class="proj-img proj-trading">
-        <div class="proj-bar" style="height:42%"></div><div class="proj-bar" style="height:68%"></div>
-        <div class="proj-bar" style="height:52%"></div><div class="proj-bar" style="height:84%"></div>
-        <div class="proj-bar" style="height:56%"></div><div class="proj-bar" style="height:93%"></div>
-        <div class="proj-bar" style="height:71%"></div><div class="proj-bar" style="height:88%"></div>
-        <div class="proj-bar" style="height:62%"></div><div class="proj-bar" style="height:77%"></div>
-        <div class="proj-badge">AI-Native &middot; Founded Nov 2025</div>
+      <div class="proj-img proj-trading" style="padding:0;overflow:hidden;position:relative;display:block;">
+          <img src="trading_alpha.png" alt="Trading Alpha — Decision Support System dashboard" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        <div class="proj-badge">Founder &middot; Built Nov 2025</div>
       </div>
       <div class="proj-body">
-        <div class="proj-sub">Founder &amp; Product Engineer &middot; Google AI Studio</div>
+        <div class="proj-sub">Founder &amp; Product Engineer &middot; React 19 &middot; TypeScript</div>
         <div class="proj-title">Trading Alpha</div>
-        <p class="proj-desc">An AI-native trading journal acting as a <strong>virtual risk officer.</strong> Scoring Wizard, VTS engine, and Vision-to-Data chart analysis for active traders.</p>
+        <p class="proj-desc">I kept losing trades I should have won &mdash; not because of bad analysis, but bad decisions under pressure. So I built <strong>Trading Alpha</strong>: a decision support system with a dynamic risk engine and AI-driven session analytics designed to enforce discipline before a single order is placed. Built in <strong>React 19 + TypeScript</strong>. 100% self-funded.</p>
         <span class="proj-link">Read case study <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
       </div>
     </div>
     <div class="proj-card reveal d2" data-case="mac">
-      <div class="proj-img proj-mac">&#x1F6CD;&#xFE0F;
-        <div class="proj-mac-lines"><div class="proj-mac-line" style="width:100%"></div><div class="proj-mac-line" style="width:75%"></div><div class="proj-mac-line" style="width:90%"></div></div>
-        <div class="proj-badge">Founder &middot; DTC &middot; Shopify</div>
+      <div class="proj-img proj-mac" style="background:linear-gradient(135deg,#080c14,#0d1525);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+        <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-label="Mac Real Studios logo">
+          <polyline points="27,28 18,50 27,72" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="73,28 82,50 73,72" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="33,70 33,30 50,52 67,30 67,70" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="50,57 56,63 50,69 44,63" fill="#22D4F4"/>
+        </svg>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.55);font-family:'Jost',sans-serif;">MAC REAL <span style="color:#22D4F4;">STUDIOS</span></div>
+        <div class="proj-badge">Founder &middot; Software Studio &middot; Google Play</div>
       </div>
       <div class="proj-body">
-        <div class="proj-sub">Founder &amp; Product Lead</div>
+        <div class="proj-sub">Founder &amp; Product Engineer &middot; Independent</div>
         <div class="proj-title">Mac Real Studios</div>
-        <p class="proj-desc">Launched a DTC brand on Shopify. A/B tested ad creatives to cut CAC by <strong>30%</strong>, generating $2,000+ in revenue with full product lifecycle ownership.</p>
-        <span class="proj-link">Read case study <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+        <p class="proj-desc">My independent studio &mdash; where I own the full stack from idea to App Store. One app live on Google Play (Strobe Light For Watch &mdash; Wear OS), with more in the pipeline. Design, engineering, and publishing all in-house. <strong>Built because I wanted to know what it feels like to ship something real.</strong></p>
+        <a href="https://thelegendmac.github.io/Mac-Real-Studios/" target="_blank" rel="noopener noreferrer" class="proj-link">Visit Studio <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
       </div>
     </div>
   </div>
 </section>
+<div class="testimonial-wrap reveal" role="region" aria-label="Testimonial">
+  <div class="testi-context">
+    <span class="testi-trophy">&#x1F3C6;</span>
+    <span class="testi-badge-pill">Frog Tank &middot; Inaugural Winners</span>
+    <div class="testi-context-divider"></div>
+    <span class="testi-context-detail">Fidelity Investments &middot; Dec 2024</span>
+  </div>
+  <div class="testi-body">
+    <div class="testi-mark" aria-hidden="true">&#x201C;</div>
+    <div class="testi-content">
+      <p class="testi-quote">Mac&#x2019;s influence was the key factor in our team&#x2019;s victory. He was the <em>railroad track that kept everything together</em> and moving seamlessly. His ability to take multiple perspectives and transform them into a cohesive vision was invaluable &mdash; and his ability to blend strategy with creativity made him indispensable to the success of the project.</p>
+      <div class="testi-divider"></div>
+      <div class="testi-attribution">
+        <div class="testi-avatar" aria-hidden="true">DPM</div>
+        <div>
+          <div class="testi-name">Director of Program Management</div>
+          <div class="testi-role">Fidelity Investments &middot; Team Big Hoppers</div>
+        </div>
+      </div>
+      <div class="testi-context-note">
+        <div class="testi-stat"><div class="testi-stat-num">18</div><div class="testi-stat-label">Presentations Competed</div></div>
+        <div class="testi-stat"><div class="testi-stat-num">2</div><div class="testi-stat-label">Rounds of Judging</div></div>
+        <div class="testi-stat"><div class="testi-stat-num">#1</div><div class="testi-stat-label">Inaugural Champions</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="section experience" id="experience">
-  <div class="eyebrow reveal">Professional Experience</div>
-  <h2 class="section-h reveal d1" style="margin-bottom:clamp(40px,6vw,64px)">10 years on<br><em>the front lines.</em></h2>
+  <div class="eyebrow reveal">04 &middot; Experience</div>
+  <h2 class="section-h reveal d1" style="margin-bottom:clamp(40px,6vw,64px)">Nearly a decade on<br><em>the front lines.</em></h2>
   <div class="exp-roles">
     <div class="role-card reveal">
       <div class="role-header">
@@ -422,21 +483,21 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
         <div class="role-date">May 2022 &ndash; Present</div>
       </div>
       <ul class="role-bullets">
-        <li>Synthesized qualitative feedback from high-value traders to identify UX friction points in <strong>Active Trader Pro</strong>, escalating critical bugs via <strong>Jira</strong> to drive platform improvements.</li>
-        <li>Executed high-stakes trade instructions (options, margin, IPOs) with <strong>100% accuracy</strong>, earning the <strong>Trade Accuracy Award (Nov 2025)</strong>.</li>
-        <li>Partnered with retirement and planning teams to streamline the workplace rollover journey, reducing wait times and increasing satisfaction scores.</li>
-        <li>Provided strategic guidance on retirement planning and market execution for novice and experienced investors, driving long-term product engagement.</li>
+        <li>Handled the full spectrum of complex trading needs — <strong>margin applications, covered options, short sales, IPOs, day trading, DRS, and Active Trader Pro support</strong> — building the deep FinTech domain expertise that separates technical PMs from generalists.</li>
+        <li>Served as a primary <strong>Active Trader Pro</strong> specialist, synthesizing qualitative feedback from power users via inbound call patterns to identify UX friction points and escalating critical bugs through <strong>Jira</strong> to drive platform improvements.</li>
+        <li>Executed high-stakes trade instructions across equities, mutual funds, money movement, and complex instruments with <strong>100% accuracy</strong> &mdash; earning the <strong>Trade Accuracy Award (Nov 2025)</strong>. The same process discipline shows up in how I define acceptance criteria and quality standards as a PM.</li>
+        <li>Fielded hundreds of complex trading and account inquiries, building a firsthand model of where financial product UX creates friction &mdash; and where it doesn&#x2019;t. That pattern recognition is the foundation of how I approach product decisions today.</li>
       </ul>
     </div>
     <div class="role-card reveal">
       <div class="role-header">
         <div><div class="role-title">Senior Technical Support Specialist</div><div class="role-company">Global Payments (TSYS &middot; iMobile3) &middot; Hybrid</div></div>
-        <div class="role-date">Jun 2018 &ndash; May 2022</div>
+        <div class="role-date">Jun 2017 &ndash; May 2022</div>
       </div>
       <ul class="role-bullets">
         <li>Orchestrated technical onboarding for <strong>25,000+ new merchants</strong> while scaling support operations to twice its original size.</li>
         <li>Analyzed patterns across <strong>9,700+ combined technical cases</strong> to identify recurring UX friction points, escalating critical bugs to engineering via Jira.</li>
-        <li>Reduced average resolution times to <strong>92% below SLA targets</strong> by building a centralized knowledge base, significantly improving First Contact Resolution (FCR).</li>
+        <li>Built a centralized knowledge base that resolved <strong>92% of cases ahead of SLA targets</strong>, significantly improving First Contact Resolution (FCR) across the team.</li>
       </ul>
     </div>
   </div>
@@ -474,7 +535,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 </div>
 <section class="contact" id="contact">
   <div class="contact-left">
-    <div class="eyebrow reveal">Get in Touch</div>
+    <div class="eyebrow reveal">05 &middot; Get in Touch</div>
     <h2 class="contact-h reveal d1">Let&#x2019;s build<br><em>something.</em></h2>
     <div class="contact-rows">
       <div class="contact-row reveal d2">
@@ -493,7 +554,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
   <div class="contact-right reveal">
     <p class="cr-eyebrow">Ready to collaborate?</p>
-    <p class="cr-headline">&#x201C;I&#x2019;ve spent a decade understanding users. Let me do the same for your product.&#x201D;</p>
+    <p class="cr-headline">&#x201C;I&#x2019;ve spent nearly a decade understanding users. Let me do the same for your product.&#x201D;</p>
     <p class="cr-note">Seeking Associate Product Manager or Product Analyst roles in FinTech, EdTech, or AI-driven consumer apps.</p>
     <a href="mailto:suited_gain0y@icloud.com" class="btn-white">Send a Message &rarr;</a>
   </div>
@@ -517,8 +578,8 @@ function openDrawer(){drawerOpen=true;burger.classList.add('open');drawer.classL
 function closeDrawer(){drawerOpen=false;burger.classList.remove('open');drawer.classList.remove('open');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
 burger.addEventListener('click',function(){drawerOpen?closeDrawer():openDrawer();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeModal();}});
-var lines=["I don't guess what users want.","I've spent 10 years listening.","I build products that just work.","Voice of Customer is my superpower."];
-var li=0,ci=0,deleting=false;
+var lines=["I don't guess what users want.","I've spent nearly a decade listening.","I build products that just work.","Voice of Customer is my superpower."];
+var li=0,ci=lines[0].length,deleting=true;
 var typedEl=document.querySelector('.typed-text');
 function type(){
   var cur=lines[li];
@@ -548,9 +609,9 @@ var counterIO=new IntersectionObserver(function(entries){
 },{threshold:0.5});
 document.querySelectorAll('.counter').forEach(function(el){counterIO.observe(el);});
 var cases={
-  finny:{eyebrow:'Case Study &middot; Fidelity Investments &middot; Dec 2024',title:'Finny &amp; Flo',subtitle:'Gamified Financial Literacy for Gen Z &mdash; Frog Tank Innovation Challenge',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Gen Z investors are entering the market without foundational financial literacy, leading to poor trading decisions, high churn, and long-term brand distrust. Existing educational tools are dry and fail to meet users where they are.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I led a cross-functional team through the full product lifecycle: discovery interviews to identify core literacy gaps, competitive analysis of existing fintech onboarding flows, and rapid prototyping of a <strong>board game concept</strong> designed to make financial concepts tangible and social. I defined the MVP feature set, mapped user journeys for first-time Gen Z investors, and built a high-fidelity pitch deck for senior leadership.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome"><strong>Won 1st Place</strong> in Fidelity\'s company-wide Frog Tank Innovation Challenge. Validated as feasible for the youth market and recognized by senior executive leadership as a differentiated approach to Gen Z acquisition and retention.</div></div>'},
-  trading:{eyebrow:'Case Study &middot; Personal Build &middot; Nov 2025',title:'Trading Alpha',subtitle:'AI-Native Trading Journal &mdash; Virtual Risk Officer for Active Traders',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Active traders suffer from emotional decision-making &mdash; entering low-quality setups, over-sizing positions, and failing to learn from losses. Existing journals are passive; they record but do not intervene.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">Using <strong>Google AI Studio</strong>, I rapid-prototyped an AI-native trading journal built around two core features: a <strong>Scoring Wizard</strong> that gates low-quality trade entries before they happen, and a <strong>VTS engine</strong> that recommends position sizes based on account risk rules. I integrated Vision-to-Data models to analyze uploaded chart screenshots automatically.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome">A <strong>fully functional AI-native app</strong> built and launched as a solo product engineer. Demonstrates end-to-end product ownership from problem identification through working MVP.</div></div>'},
-  mac:{eyebrow:'Case Study &middot; Personal Venture &middot; Shopify',title:'Mac Real Studios',subtitle:'DTC Brand Launch &mdash; Full Product Lifecycle and Growth Optimization',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Building a DTC brand from zero requires solving product-market fit and customer acquisition efficiency simultaneously. Most first-time founders overspend on ads before validating creative.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I launched Mac Real Studios on <strong>Shopify</strong> and ran <strong>structured A/B tests on ad creatives</strong> across imagery, copy tone, and CTA framing. I tracked CAC per variant and reallocated budget to winners weekly. I also managed the full product lifecycle including supplier relationships and sustainability partnerships.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome">Reduced Customer Acquisition Cost by <strong>30%</strong> through systematic A/B testing. Generated <strong>$2,000+ in revenue</strong> while maintaining profitability as a solo founder.</div></div>'}
+  finny:{eyebrow:'Case Study &middot; Fidelity Investments &middot; Dec 2024',title:'Finny &amp; Flo',subtitle:'Inaugural Frog Tank Champions &mdash; Gamified Financial Literacy for Middle Schoolers',body:'<div class="modal-section"><div class="modal-section-label">The Competition</div><p class="modal-section-text">Frog Tank is Fidelity&#x2019;s internal Shark Tank-style innovation challenge. Teams developed original ideas and pitched them to a panel of senior judges (&ldquo;Frogs&rdquo;) across <strong>2 rounds and 18 total presentations</strong>. Our team &mdash; the <strong>Big Hoppers</strong> &mdash; was selected as the <strong>inaugural Frog Tank winners</strong> out of all competing teams.</p></div><div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Gen Z and middle school students are entering adulthood without foundational financial literacy, leading to poor money habits, high debt, and long-term brand distrust for financial institutions. Existing educational tools are too dry, too abstract, and fail to meet young users where they are.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I led the Big Hoppers through the full product lifecycle: discovery to identify core literacy gaps in middle schoolers, competitive analysis of existing EdTech and FinTech onboarding flows, and rapid prototyping of <strong>Finny &amp; Flo</strong> &mdash; a gamified board game designed to make financial concepts tangible and social. I defined the MVP feature set, mapped user journeys, managed team alignment under tight deadlines, and built the high-fidelity pitch deck presented to executive leadership.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome"><strong>1st Place &mdash; Inaugural Frog Tank Winner.</strong> Recognized by senior executive leadership as a differentiated, feasible approach to Gen Z and youth financial literacy. The Director of Program Management noted: &ldquo;Mac&#x2019;s influence was the key factor in our team&#x2019;s victory. His leadership, combined with innovative thinking and commitment to excellence, made the Big Hoppers a force to be reckoned with.&rdquo;</div></div>'},
+  trading:{eyebrow:'Case Study &middot; Personal Build &middot; Nov 2025',title:'Trading Alpha',subtitle:'Quantitative Decision Support System for Professional Traders',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Most retail traders fail not because of poor strategy &mdash; but because of <strong>emotional inconsistency</strong> and undisciplined risk management. Three root causes define the gap: <strong>Emotional Bias</strong> (revenge trades, FOMO after losses), <strong>Risk Fragmentation</strong> (manual position sizing leads to oversizing errors), and <strong>Lack of Structure</strong> (no pre-flight checklist to confirm macro and sector alignment before entry).</p></div><div class="modal-section"><div class="modal-section-label">The Approach</div><p class="modal-section-text">I designed <strong>Trading Alpha</strong> as a Decision Support System &mdash; not just a journal. Built with <strong>React 19 &amp; TypeScript</strong> for type-safe state management and <strong>Tailwind CSS</strong> for a responsive, production-grade UI. The design philosophy: a high-density &ldquo;Terminal&rdquo; aesthetic (pure black with neon blue &amp; green accents) that prioritizes data clarity and keeps the trader calm and objective under pressure.<br><br>Key innovations include the <strong>Alpha Protocol Wizard</strong> &mdash; a multi-step guided entry system that scores each trade across Fundamentals, Technicals, and Sentiment. Trades below the protocol threshold are flagged before execution. The <strong>Volatility-Tiered Scaling (VTS) engine</strong> dynamically adjusts the trader&rsquo;s R-Unit (risk unit) based on account balance and mental state. A <strong>Risk Runway gauge</strong> makes capital depletion tangible, showing exactly how many trades remain in the session budget. A <strong>Mental Check-In</strong> feature correlates emotional state with performance and triggers a Global Lockout when the trader is tilted.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome"><strong>Fully functional PWA</strong> shipped as a solo product engineer. Eliminated overtrading via hard stops and risk limits. Quantified strategy edge by tracking Protocol Scores alongside PnL. Delivered an integrated Calendar Heatmap and Equity Curve for 30,000-ft performance analysis &mdash; mobile-ready from day one.</div></div><div class="modal-section"><div class="modal-section-label">Key Features</div><p class="modal-section-text">Real-Time PnL Tracking (Realized &amp; Unrealized) &middot; Dynamic Risk-per-Trade Calculator &middot; Alpha Protocol Entry Wizard &middot; Session Performance Analytics &middot; Psychological State Correlation &middot; Macro &amp; Sector Pulse HUD &middot; Calendar Heatmap &middot; Mobile-Ready PWA</p></div>'},
+  mac:{eyebrow:'Case Study &middot; Personal Venture &middot; Independent Studio',title:'Mac Real Studios',subtitle:'Independent Software Studio &mdash; Apps Built to Ship, Not to Sit on a Shelf',body:'<div class="modal-section"><div class="modal-section-label">The Problem</div><p class="modal-section-text">Most software gets built to check a box &mdash; features without purpose, apps without users, products that never ship. Mac Real Studios was built around the opposite philosophy: identify a real gap, build something better than what exists, and put it in users\' hands.</p></div><div class="modal-section"><div class="modal-section-label">My Approach</div><p class="modal-section-text">I founded <strong>Mac Real Studios</strong> as a fully independent, self-funded software studio. Design, engineering, and publishing are all in-house &mdash; one person, zero handoff. The first product, <strong>Strobe Light For Watch</strong>, is a native Wear OS app built for night runners and walkers who need to be visible without reaching for their phone. I identified an underserved niche on Wear OS, designed a clean single-purpose interface, and shipped it to <strong>Google Play</strong>.</p></div><div class="modal-section"><div class="modal-section-label">The Outcome</div><div class="modal-outcome"><strong>1 app live on Google Play</strong> &mdash; Strobe Light For Watch. 100% self-funded, no investors, no outside timeline. Productivity and founder tools actively in development. Every decision made in service of the product.</div></div>'}
 };
 var modalOverlay=document.getElementById('modal');
 var modalClose=document.getElementById('modal-close');
