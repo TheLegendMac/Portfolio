@@ -22,9 +22,9 @@ html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:80px}
 body{background:var(--white);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-.resume-fab{position:fixed;bottom:28px;right:20px;z-index:300;display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);padding:13px 22px;border-radius:100px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;box-shadow:0 8px 28px rgba(20,20,20,.2);transition:background .2s,transform .2s,box-shadow .2s;opacity:0;animation:fabIn .5s 1.5s forwards;white-space:nowrap}
-.resume-fab:hover{background:var(--red);transform:translateY(-2px);box-shadow:0 12px 36px rgba(193,40,27,.25)}
-.resume-fab svg{flex-shrink:0}
+
+
+
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad-x);transition:background .35s,box-shadow .35s}
 nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
 .nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;text-decoration:none;letter-spacing:.3px;z-index:201;color:var(--white);transition:color .35s ease}
@@ -209,7 +209,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.45s}
 @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fabIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+to{opacity:1;transform:none}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -233,7 +233,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 }
 @media(max-width:600px){
   :root{--sp-xl:72px}
-  .resume-fab{bottom:20px;right:16px;padding:11px 18px;font-size:10px}
+  
   .exp-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}
   .contact-row{flex-direction:column;align-items:flex-start;gap:4px}.cr-val{text-align:left}
   footer{flex-direction:column;text-align:center}.foot-links{justify-content:center}
@@ -267,16 +267,12 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   .testi-context-note{grid-template-columns:1fr}
 }
 @media print{
-  .resume-fab,nav,.hero-ticker-wrap,.cert-section,.modal-overlay{display:none!important}
+  nav,.hero-ticker-wrap,.cert-section,.modal-overlay{display:none!important}
   .hero{min-height:auto;page-break-after:always}.reveal{opacity:1!important;transform:none!important}
 }
 </style>
 </head>
 <body>
-<a href="APM_Resume_2026_2_0_Shortened.docx" class="resume-fab" download="Markquel_Taylor_Resume.docx" aria-label="Download Resume">
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  Resume
-</a>
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <a href="#" class="nav-logo" aria-label="Home">Markquel <em>Taylor</em></a>
   <ul class="nav-links" role="list">
@@ -284,7 +280,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a></li>
-    <li><a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="nav-pill">Resume</a></li>
   </ul>
   <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -296,7 +291,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <a href="#experience" onclick="closeDrawer()">Experience</a>
   <a href="#contact" onclick="closeDrawer()">Contact</a>
   <a href="https://www.linkedin.com/in/markqueltaylor" target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a>
-  <a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="drawer-pill">Resume</a>
 </div>
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
@@ -509,7 +503,6 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
   <div class="bridge-actions">
     <a href="#contact" class="btn-red">Get in Touch</a>
-    <a href="APM_Resume_2026_2_0_Shortened.docx" download="Markquel_Taylor_Resume.docx" class="btn-ghost-light">Download Resume</a>
   </div>
 </div>
 <div class="cert-section" aria-label="Certifications">
@@ -556,7 +549,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <p class="cr-eyebrow">Ready to collaborate?</p>
     <p class="cr-headline">&#x201C;I&#x2019;ve spent nearly a decade understanding users. Let me do the same for your product.&#x201D;</p>
     <p class="cr-note">Seeking Associate Product Manager or Product Analyst roles in FinTech, EdTech, or AI-driven consumer apps.</p>
-    <a href="mailto:suited_gain0y@icloud.com" class="btn-white">Send a Message &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#6714120e1302033800060e09571e270e040b0812034904080a" class="btn-white">Send a Message &rarr;</a>
   </div>
 </section>
 <footer>
@@ -568,7 +561,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
   <p>&copy; 2026 Markquel Taylor</p>
 </footer>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>80)},{passive:true});
 var burger=document.getElementById('burger');
