@@ -83,9 +83,9 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 /* PROJECTS */
 .projects{background:var(--white);border-top:1px solid var(--line)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
-.proj-card{background:var(--white);display:flex;flex-direction:column;transition:background .3s}
+.proj-card{background:var(--white);display:flex;flex-direction:column;transition:background .3s;height:100%}
 .proj-card:hover{background:var(--red-dim)}
-.proj-img{aspect-ratio:16/10;position:relative;overflow:hidden;flex-shrink:0}
+.proj-img{position:relative;overflow:hidden;flex-shrink:0;height:220px;}
 .proj-finny{background:#050a0a;display:flex;align-items:center;justify-content:center;font-size:clamp(40px,6vw,64px)}
 .proj-trading{background:#0b0e14}
 .proj-mac{background:linear-gradient(135deg,#080c14,#0d1525);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
@@ -236,6 +236,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   .stat-cell:nth-child(3){border-top:1px solid #1e1e1e}
   .stat-cell:nth-child(4){border-top:1px solid #1e1e1e;border-right:none}
   .proj-grid{grid-template-columns:1fr 1fr}
+  .proj-img{height:200px}
   .about-grid{grid-template-columns:1fr}.about-photo{max-width:360px;margin:0 auto}.about-photo-frame{display:none}
   .contact{grid-template-columns:1fr}.contact-left{border-right:none;border-bottom:1px solid var(--line)}
 }
@@ -246,6 +247,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 @media(max-width:600px){
   :root{--sp-xl:72px}
   .proj-grid{grid-template-columns:1fr}
+  .proj-img{height:240px}
   .contact-row{flex-direction:column;align-items:flex-start;gap:4px}.cr-val{text-align:left}
   footer{flex-direction:column;text-align:center}.foot-links{justify-content:center}
   .hero-proof{display:none}
@@ -254,6 +256,18 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   nav{display:none!important}
   .hero{min-height:auto;page-break-after:always}.reveal{opacity:1!important;transform:none!important}
 }
+
+/* CERT TICKER */
+.cert-section{background:var(--ink);padding:clamp(40px,6vw,64px) 0;border-top:1px solid #1e1e1e;overflow:hidden}
+.cert-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#444;margin-bottom:28px;padding:0 var(--pad-x)}
+.cert-ticker-wrap{overflow:hidden}
+.cert-ticker{display:flex;width:max-content;animation:tickerScroll 36s linear infinite}
+.cert-ticker:hover{animation-play-state:paused}
+.cert-item{display:flex;align-items:center;gap:14px;padding:16px clamp(24px,4vw,48px);border-right:1px solid #1e1e1e;white-space:nowrap}
+.cert-item-year{font-size:10px;letter-spacing:2px;color:var(--red)}
+.cert-item-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.6)}
+.cert-item-org{font-size:10px;letter-spacing:1.5px;color:#444;text-transform:uppercase}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 </style>
 </head>
 <body>
@@ -325,7 +339,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <!-- FINNY & FLO -->
     <div class="proj-card reveal">
       <div class="proj-img proj-finny" style="padding:0;overflow:hidden;position:relative;">
-        <div style="background-color:#0b1f24;width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+        <div style="background-color:#0b1f24;width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:absolute;inset:0;">
           <img src="finny-flo.png" alt="Finny &amp; Flo" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;">
         </div>
         <div class="proj-badge">&#x1F3C6; 1st Place &mdash; Inaugural Frog Tank</div>
@@ -365,8 +379,8 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 
     <!-- TRADING ALPHA -->
     <div class="proj-card reveal d1">
-      <div class="proj-img proj-trading" style="padding:0;overflow:hidden;position:relative;display:block;">
-        <img src="trading_alpha.png" alt="Trading Alpha dashboard" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+      <div class="proj-img proj-trading" style="overflow:hidden;position:relative;">
+        <img src="trading_alpha.png" alt="Trading Alpha dashboard" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
         <div class="proj-badge">Product Builder &middot; Nov 2025</div>
       </div>
       <div class="proj-body">
@@ -404,7 +418,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
 
     <!-- MAC REAL STUDIOS -->
     <div class="proj-card reveal d2">
-      <div class="proj-img proj-mac" style="background:linear-gradient(135deg,#080c14,#0d1525);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+      <div class="proj-img proj-mac" style="background:linear-gradient(135deg,#080c14,#0d1525);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;">
         <svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg" aria-label="Mac Real Studios logo">
           <polyline points="27,28 18,50 27,72" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
           <polyline points="73,28 82,50 73,72" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -510,15 +524,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
         </div>
       </div>
       <!-- Credentials -->
-      <div class="cred-tags reveal d4">
-        <span class="cred-tag"><span class="cred-tag-dot"></span>IBM Product Management Certificate</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>FINRA Series 7 &amp; 63</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>Google AI Professional</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>Google BI Specialization</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>Google Prompting Essentials</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>AI for Work &amp; Life &middot; UNF</span>
-        <span class="cred-tag"><span class="cred-tag-dot"></span>Android Nanodegree &middot; Udacity</span>
-      </div>
+
     </div>
   </div>
 </section>
@@ -553,6 +559,29 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   </div>
 </section>
 
+<!-- CERT TICKER -->
+<div class="cert-section" aria-label="Education &amp; Certifications">
+  <div class="cert-label">Education &amp; Certifications</div>
+  <div class="cert-ticker-wrap" aria-hidden="true">
+    <div class="cert-ticker">
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google Business Intelligence Specialization</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google AI Professional Specialization</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Feb 2026</span><span class="cert-item-name">Google Prompting Essentials</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Dec 2025</span><span class="cert-item-name">IBM Product Management Professional Certificate</span><span class="cert-item-org">Coursera &middot; IBM</span></div>
+      <div class="cert-item"><span class="cert-item-year">Nov 2025</span><span class="cert-item-name">AI for Work and Life</span><span class="cert-item-org">University of North Florida</span></div>
+      <div class="cert-item"><span class="cert-item-year">Jan 2023</span><span class="cert-item-name">Series 7 &middot; Series 63 &middot; SIE</span><span class="cert-item-org">FINRA</span></div>
+      <div class="cert-item"><span class="cert-item-year">Oct 2018</span><span class="cert-item-name">Android Development Nanodegree</span><span class="cert-item-org">Udacity</span></div>
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google Business Intelligence Specialization</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Mar 2026</span><span class="cert-item-name">Google AI Professional Specialization</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Feb 2026</span><span class="cert-item-name">Google Prompting Essentials</span><span class="cert-item-org">Coursera &middot; Google</span></div>
+      <div class="cert-item"><span class="cert-item-year">Dec 2025</span><span class="cert-item-name">IBM Product Management Professional Certificate</span><span class="cert-item-org">Coursera &middot; IBM</span></div>
+      <div class="cert-item"><span class="cert-item-year">Nov 2025</span><span class="cert-item-name">AI for Work and Life</span><span class="cert-item-org">University of North Florida</span></div>
+      <div class="cert-item"><span class="cert-item-year">Jan 2023</span><span class="cert-item-name">Series 7 &middot; Series 63 &middot; SIE</span><span class="cert-item-org">FINRA</span></div>
+      <div class="cert-item"><span class="cert-item-year">Oct 2018</span><span class="cert-item-name">Android Development Nanodegree</span><span class="cert-item-org">Udacity</span></div>
+    </div>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-left">
@@ -581,7 +610,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
     <p class="cr-eyebrow">For hiring managers &amp; recruiters</p>
     <p class="cr-headline">If you&#x2019;re building a product team that needs someone who actually understands where financial products lose users &mdash; I&#x2019;d like to talk.</p>
     <p class="cr-note">Targeting APM and Product Analyst roles in FinTech, AI-driven consumer finance, or EdTech. Open to remote and hybrid.</p>
-    <a href="mailto:collabwithmac@gmail.com" class="btn-white">Send a Message &rarr;</a>
+    <a href="/cdn-cgi/l/email-protection#2c4f4340404d4e5b455844414d4f6c4b414d4540024f4341" class="btn-white">Send a Message &rarr;</a>
   </div>
 </section>
 
@@ -598,7 +627,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
   <p>&copy; 2026 Markquel Taylor</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* NAV */
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>80);},{passive:true});
