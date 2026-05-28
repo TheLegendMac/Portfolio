@@ -377,17 +377,17 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
       </div>
     </div>
 
-    <!-- TRADING ALPHA -->
+    <!-- TRAPPER'S EDGE -->
     <div class="proj-card reveal d1">
       <div class="proj-img proj-trading" style="overflow:hidden;position:relative;">
-        <img src="trading_alpha.png" alt="Trading Alpha dashboard" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
-        <div class="proj-badge">Product Lead &middot; Jun &ndash; Dec 2025</div>
+        <img src="trading_alpha.png" alt="Trapper's Edge trading cockpit" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
+        <div class="proj-badge">Product Lead &middot; Jun 2025 &ndash; Present</div>
       </div>
       <div class="proj-body">
-        <div class="proj-sub">AI-Powered Decision Support &middot; Solo Build &middot; Shipped PWA</div>
-        <div class="proj-title">Trading Alpha</div>
-        <p class="proj-desc">Most users fail in complex consumer decisions not because of bad strategy &mdash; but because of emotional decisions under pressure. I identified three root causes from direct user support work and built an <strong>AI-powered decision support tool</strong> that intervenes at the point of decision, not after.</p>
-        <a href="https://trading-alpha-257184969190.us-west1.run.app/" target="_blank" rel="noopener noreferrer" class="proj-link">Launch Live Demo <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
+        <div class="proj-sub">AI-Powered Trading Cockpit &middot; Solo Build &middot; Live PWA</div>
+        <div class="proj-title">Trapper&#x2019;s Edge</div>
+        <p class="proj-desc">Most traders fail not because of bad strategy &mdash; but because of emotional decisions made under pressure. I identified three root causes from direct support work and built a full-stack <strong>AI-powered trading cockpit</strong> &mdash; regime-gated risk management, guided trade workflows for swing and intraday modes, and an AI layer that evaluates your setup before you act.</p>
+        <a href="https://thelegendmac.github.io/Alpha-Edge-Trading/" target="_blank" rel="noopener noreferrer" class="proj-link">Launch Live App <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
         <div class="proj-accordion">
           <button class="proj-accordion-toggle" aria-expanded="false">
             Read Case Study
@@ -397,21 +397,23 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
             <div class="proj-accordion-inner">
               <div class="acc-section">
                 <div class="acc-label">The Problem</div>
-                <p class="acc-text">Three root causes of failure in high-stakes trading decisions — identified from two sources equally: my own experience making bad trades and reflecting on why, and years of watching users repeat the same mistakes on support calls. <strong>Emotional Bias</strong> (revenge trades, FOMO after losses), <strong>Risk Fragmentation</strong> (manual position sizing leads to oversizing errors), and <strong>Lack of Pre-Decision Structure</strong> (no process to check alignment before acting). Existing tools recorded what happened after. None of them interrupted the decision while it was being made.</p>
+                <p class="acc-text">Three root causes of failure in high-stakes trading — identified equally from personal experience and years on the Fidelity trade desk watching users repeat the same mistakes. <strong>Emotional Bias</strong>: revenge trades and FOMO after losses override the strategy. <strong>Risk Fragmentation</strong>: manual position sizing leads to chronic oversizing, especially when market conditions shift. <strong>No Pre-Decision Structure</strong>: traders act on impulse without checking whether the setup, the regime, and the risk all align. Existing tools recorded what happened after the trade. None of them interrupted the decision while it was being made.</p>
               </div>
               <div class="acc-section">
                 <div class="acc-label">Product Decisions &amp; Scope</div>
-                <p class="acc-text">I scoped Trading Alpha as an <strong>AI-powered decision support system</strong> — not a journal, not a tracker. The product had one job: get between the user and a bad decision before it happens.</p>
-                <p class="acc-text" style="margin-top:12px;">Key UX decision: I considered both a <strong>scoring-based UX and an alert-based UX</strong> and made a judgment call — scoring forces the user to think through the decision step by step before acting, rather than reacting to a warning after the impulse is already there. That reasoning shaped the entire MVP.</p>
-                <p class="acc-text" style="margin-top:12px;"><strong>Design choice: high-density terminal aesthetic.</strong> Deliberate. The user is already under pressure. A calm, focused interface removes one more reason to rush.</p>
+                <p class="acc-text">I scoped Trapper&#x2019;s Edge as a <strong>decision cockpit</strong> — not a journal, not a scanner. The product had one job: make it structurally harder to take a bad trade.</p>
+                <p class="acc-text" style="margin-top:12px;">The centerpiece is a <strong>Market Regime system</strong> (Risk-On / Neutral / Risk-Off) that automatically gates position sizing — full size in trending markets, reduced in choppy ones, puts-only in downtrends. Regime state can&#x2019;t be ignored; it&#x2019;s wired into every trade calculation. I added a <strong>rolling kill-switch</strong> (configurable drawdown floor) that locks out new trades when performance degrades past a threshold — removing the ability to dig a hole impulsively.</p>
+                <p class="acc-text" style="margin-top:12px;">The trade flow is <strong>mode-specific</strong>: swing traders and intraday traders follow separate guided workflows, each with their own setup catalog, entry/stop/target logic, and pre-trade checklist. I considered one unified flow and rejected it — the decision inputs for a 3-day swing and a 30-minute ORB break are different enough that collapsing them creates noise, not simplicity.</p>
+                <p class="acc-text" style="margin-top:12px;"><strong>Edge Intelligence</strong> is the AI evaluation layer: it reads the full trade context (regime, setup, direction, confluence) and scores the setup before the user commits. I also built an <strong>AI Setup Builder</strong> so traders can define custom strategy templates — thesis, pre-mortem, and bias — without leaving the app.</p>
+                <p class="acc-text" style="margin-top:12px;"><strong>Design choice: high-density terminal aesthetic.</strong> Deliberate. The user is already under pressure. A focused, low-distraction interface removes one more reason to rush a bad trade.</p>
               </div>
               <div class="acc-section">
                 <div class="acc-label">Technical Execution</div>
-                <p class="acc-text">Shipped end-to-end as a solo builder: problem definition, wireframes, build, deployment. Built as a PWA in <strong>React 19 + TypeScript</strong> for mobile-ready access from day one. Custom risk engine developed in-house. Deployed to Google Cloud Run.</p>
+                <p class="acc-text">Shipped end-to-end as a solo builder: problem definition, wireframes, build, deployment. Built as a <strong>PWA using vanilla JS and ES modules</strong> — no framework overhead, fast load, installable on mobile from day one. Custom risk engine handles regime-adjusted sizing, R-multiple targets, and kill-switch thresholds in-house. <strong>Supabase</strong> powers cloud sync so state persists across devices. <strong>SnapTrade API</strong> integration pulls live broker fills directly into the app for review and promotion to the trade log. Deployed to GitHub Pages.</p>
               </div>
               <div class="acc-section">
                 <div class="acc-label">Outcome</div>
-                <div class="acc-outcome"><strong>Live, fully functional PWA — shipped solo, end-to-end.</strong> Built to intervene at the moment of decision, not document it afterward. Hard stops and risk limits make overtrading structurally harder. Protocol Scores tracked alongside PnL make strategy edge measurable over time. Currently reviewing AI outputs against expected results and iterating on prompt structure based on where accuracy degrades.</div>
+                <div class="acc-outcome"><strong>Live, fully functional PWA — shipped solo, end-to-end, actively iterated.</strong> Regime gating and the kill-switch make overtrading structurally harder, not just discouraged. Dual-mode trade workflows (swing + intraday) guide decisions without slowing them down. Edge Intelligence AI layer evaluates setup quality before commitment. Broker sync via SnapTrade closes the loop between execution and review. Currently iterating on AI prompt accuracy and expanding the stats layer to surface edge by setup type over time.</div>
               </div>
             </div>
           </div>
