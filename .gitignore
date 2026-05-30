@@ -1,0 +1,9 @@
+.DS_Store
+# macOS
+.DS_Store
+
+# Deploy temp
+_deploy_tmp/
+
+# VS Code
+.vscode/
