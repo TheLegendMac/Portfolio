@@ -106,7 +106,7 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .proj-accordion-icon::after{width:2px;height:16px;top:0;left:7px}
 .proj-accordion-toggle.open .proj-accordion-icon::after{transform:rotate(90deg);opacity:0}
 .proj-accordion-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.proj-accordion-body.open{max-height:1200px}
+.proj-accordion-body.open{max-height:2200px}
 .proj-accordion-inner{padding:20px 0 8px}
 .acc-section{margin-bottom:24px}
 .acc-section:last-child{margin-bottom:0}
@@ -114,8 +114,14 @@ nav.scrolled .nav-burger span{background:var(--ink)}
 .acc-label::before{content:'';width:16px;height:1px;background:var(--red);display:block}
 .acc-text{font-size:14px;line-height:1.85;color:var(--gray)}
 .acc-text strong{color:var(--ink);font-weight:500}
+.acc-feature-list{list-style:none;display:grid;gap:10px;margin-top:4px}
+.acc-feature-list li{font-size:14px;line-height:1.75;color:var(--gray);padding-left:20px;position:relative}
+.acc-feature-list li::before{content:'';position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--red)}
+.acc-feature-list strong{color:var(--ink);font-weight:500}
 .acc-outcome{background:var(--cream);border-left:3px solid var(--red);padding:16px 20px;font-size:14px;line-height:1.8;color:var(--ink);margin-top:10px}
+.proj-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .proj-link{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:500;padding-bottom:4px;border-bottom:1px solid var(--line);width:fit-content;transition:color .2s,border-color .2s;margin-bottom:16px}
+.proj-links .proj-link{margin-bottom:0}
 .proj-link:hover{color:var(--red);border-color:var(--red)}
 .proj-link svg{transition:transform .2s}
 .proj-link:hover svg{transform:translateX(3px)}
@@ -404,7 +410,7 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
       </div>
     </div>
 
-    <!-- TRADING ALPHA -->
+    <!-- TRAPPER'S EDGE -->
     <div class="proj-card reveal d1">
       <div class="proj-img proj-trading" style="background:linear-gradient(135deg,#080c14,#0d1525);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;">
         <svg viewBox="0 0 100 82" width="96" height="79" xmlns="http://www.w3.org/2000/svg" aria-label="Trapper's Edge logo">
@@ -412,13 +418,15 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
           <polyline points="24,70 50,34 76,70" fill="none" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div style="font-size:17px;font-weight:300;letter-spacing:0.5px;font-family:'Jost',sans-serif;background:linear-gradient(90deg,#64B8FF 0%,#B06FE8 50%,#F0607A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Trapper&#x2019;s Edge</div>
-        <div class="proj-badge">Product Lead &middot; Jun 2025 &ndash; Present</div>
+        <div class="proj-badge">Live Beta &middot; Work in Progress</div>
       </div>
       <div class="proj-body">
-        <div class="proj-sub">Regime-Gated Trading Cockpit &middot; Solo Build &middot; Shipped PWA</div>
+        <div class="proj-sub">Trading Journal &amp; Risk-Sizing Cockpit &middot; Solo Build</div>
         <div class="proj-title">Trapper&#x2019;s Edge</div>
-        <p class="proj-desc">Most traders don&#x2019;t lose because their strategy is wrong &mdash; they lose to emotion under pressure. I traced that to three root causes over years on the Fidelity trade desk and built a full <strong>trading cockpit</strong> that makes the disciplined move the easy one: regime-gated risk sizing, separate guided workflows for swing and intraday, and an Edge Intelligence layer that scores your setup before you commit.</p>
-        <a href="https://thelegendmac.github.io/Trappers-Edge/" target="_blank" rel="noopener noreferrer" class="proj-link">Launch Live App <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
+        <p class="proj-desc">Trapper&#x2019;s Edge is a live beta PWA for traders who need structure before they click buy: a <strong>trading journal and risk-sizing cockpit</strong> with guided swing/intraday trade flows, market-regime gates, user-defined rules, Edge Intelligence analytics, and optional sync/import layers.</p>
+        <div class="proj-links">
+          <a href="https://thelegendmac.github.io/Trappers-Edge/" target="_blank" rel="noopener noreferrer" class="proj-link">Launch Live App <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></a>
+        </div>
         <div class="proj-accordion">
           <button class="proj-accordion-toggle" aria-expanded="false">
             Read Case Study
@@ -432,19 +440,28 @@ footer p{font-size:11px;letter-spacing:1.5px;color:#333}
               </div>
               <div class="acc-section">
                 <div class="acc-label">Product Decisions &amp; Scope</div>
-                <p class="acc-text">I scoped Trapper&#x2019;s Edge as a <strong>decision cockpit</strong>, not a journal or a scanner. It had one job: make a bad trade structurally harder to take.</p>
-                <p class="acc-text" style="margin-top:12px;">The centerpiece is a <strong>Market Regime system</strong> (Risk-On / Neutral / Risk-Off) that gates position sizing automatically &mdash; full size in trending markets, trimmed in choppy ones, puts-only in downtrends. The regime is wired into every calculation, so it can&#x2019;t be quietly ignored. On top of it sits a <strong>rolling kill-switch</strong>: cross your drawdown floor and new trades lock out, which takes away the option to dig the hole deeper on impulse.</p>
-                <p class="acc-text" style="margin-top:12px;">The trade flow is <strong>mode-specific</strong>. Swing and intraday traders follow separate guided workflows, each with its own setup catalog, entry/stop/target logic, and pre-trade checklist. I considered one unified flow and dropped it &mdash; the inputs for a three-day swing and a thirty-minute opening-range break differ enough that merging them adds noise, not simplicity.</p>
-                <p class="acc-text" style="margin-top:12px;"><strong>Edge Intelligence</strong> is the AI layer: it reads the full context &mdash; regime, setup, direction, confluence &mdash; and scores the trade before you commit. An <strong>AI Setup Builder</strong> lets traders define their own strategy templates, thesis and pre-mortem and all, without leaving the app.</p>
-                <p class="acc-text" style="margin-top:12px;">The <strong>high-density terminal aesthetic</strong> was deliberate. The trader is already under pressure, so a calm, low-distraction interface takes away one more reason to rush.</p>
+                <p class="acc-text">I scoped Trapper&#x2019;s Edge as a <strong>planning, sizing, and journaling tool</strong>, not a scanner and not investment advice. It had one job: make the trader commit to the plan, the rules, and the risk math before the trade becomes real.</p>
+                <p class="acc-text" style="margin-top:12px;">The centerpiece is a <strong>Market Regime engine</strong> with Aggressive / Cautious / Defensive context. It gates direction and adjusts position size, and can optionally suggest a regime from SPY data with the user&#x2019;s own Alpha Vantage key. The app still makes the trader apply the change deliberately.</p>
+                <p class="acc-text" style="margin-top:12px;">The trade flow is <strong>mode-specific</strong>. Swing and intraday traders follow separate guided workflows with risk rails, gates, position math, setup context, and review steps. Swing trades can generate a copy-ready OCO ticket, while all entries still have to be verified and placed manually in the broker.</p>
+              </div>
+              <div class="acc-section">
+                <div class="acc-label">Top Features</div>
+                <ul class="acc-feature-list">
+                  <li><strong>Trade journal:</strong> log swing and intraday trades, grade them, edit them, and review trade history.</li>
+                  <li><strong>Guided trade flow:</strong> step-by-step sizing for swing and intraday setups with risk rails, gates, and position math.</li>
+                  <li><strong>Plan tab:</strong> account rules, stops, max positions, kill-switch settings, and a quality checklist the trader writes and controls.</li>
+                  <li><strong>Edge Intelligence:</strong> closed-trade analytics, setup scorecards, bucketed performance, rolling stats, and report/import support.</li>
+                  <li><strong>AI insights:</strong> optional Gemini-powered insights and setup builder using the trader&#x2019;s own API key stored locally.</li>
+                  <li><strong>Data layer:</strong> CSV import/export, optional Supabase cloud sync, optional SnapTrade brokerage import, and offline-safe PWA behavior.</li>
+                </ul>
               </div>
               <div class="acc-section">
                 <div class="acc-label">Technical Execution</div>
-                <p class="acc-text">I shipped this end to end on my own &mdash; problem definition, wireframes, build, deployment. It&#x2019;s a <strong>PWA in React 19 and TypeScript</strong>, installable on mobile from day one, with a custom risk engine that handles regime-adjusted sizing, R-multiple targets, and the kill-switch in-house. <strong>Supabase</strong> keeps state in sync across devices, and a <strong>SnapTrade</strong> integration pulls live broker fills straight into the app for review and promotion to the trade log. Hosted on GitHub Pages.</p>
+                <p class="acc-text">I shipped the beta end to end on my own &mdash; problem definition, UX, build, testing, and deployment. The current stack is <strong>vanilla JavaScript with native ES modules, bundled by Vite</strong>, with Vitest/jsdom tests, GitHub Pages deployment, localStorage as the offline-safe source of truth, optional Supabase cloud sync, and Cloudflare Workers for optional SnapTrade brokerage import.</p>
               </div>
               <div class="acc-section">
-                <div class="acc-label">Outcome</div>
-                <div class="acc-outcome"><strong>A live, fully functional PWA &mdash; shipped solo, end to end, and actively iterated.</strong> Regime gating and the kill-switch make overtrading structurally harder, not just discouraged. The dual-mode workflows guide decisions without slowing them down, and the Edge Intelligence layer weighs setup quality before you commit. Broker sync via SnapTrade closes the loop between execution and review. Right now I&#x2019;m tightening the AI&#x2019;s accuracy and building out the stats layer to surface edge by setup type over time.</div>
+                <div class="acc-label">Current Status</div>
+                <div class="acc-outcome"><strong>Live beta, actively in progress.</strong> The installable PWA is usable now for journaling, risk sizing, planning rules, guided trade flow, and early Edge Intelligence analytics. I&#x2019;m still iterating the beta experience, especially advanced analytics, AI review quality, import/sync workflows, reporting, and Pro brokerage features.</div>
               </div>
             </div>
           </div>
