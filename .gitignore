@@ -7,3 +7,6 @@ _deploy_tmp/
 
 # VS Code
 .vscode/
+
+# Local-only deploy helper (do not publish)
+deploy.sh
